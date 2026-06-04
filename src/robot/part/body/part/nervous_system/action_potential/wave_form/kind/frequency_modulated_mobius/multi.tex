@@ -25,19 +25,55 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-\title{Neural coding}
+\title{Multi frequency modulated Mobius}
 \date{}
+\author{Mohammad Rahmani}
 
 \begin{document}
-    \maketitle
+\maketitle
+
+\subsection{Multi-component FMM waveform}
     
-    Neural coding (or neural representation) refers to the relationship between a stimulus and its respective neuronal responses, and the signaling relationships among networks of neurons in an ensemble. \seeherefooter{https://en.wikipedia.org/wiki/Neural\_coding}
+    A complex waveform can be modeled as the sum of several FMM waves.
+    The general $m$-component model is:
     
-    \cite{shimazaki-2025-neural-coding-foundational-concepts-statistical-formulations-and-recent-advances} explains neural coding as the process by which stimuli are transformed into neural activity that supports perception and behavior, combining classical concepts with statistical encoding and decoding frameworks.
+    \begin{equation}
+        V(t)
+        =
+        M
+        +
+        \sum_{j=1}^{m}
+        W_j(t)
+    \end{equation}
     
+    Equivalently:
     
+    \begin{equation}
+        V(t)
+        =
+        M
+        +
+        \sum_{j=1}^{m}
+        A_j
+        \cos
+        \Biggl[
+            \beta_j
+            +
+            2
+            \arctan
+            \Biggl(
+            \omega_j
+            \tan
+            \Bigl(
+            \frac{t-\alpha_j}{2}
+            \Bigr)
+            \Biggr)
+            \Biggr]
+    \end{equation}
     
-    
+    Here, $M$ is the baseline or vertical offset of the full signal.
+    In the case of an action potential, $V(t)$ represents the membrane voltage at time $t$.
+    \cite{rueda-2021-a-novel-wave-decomposition-for-oscillatory-signals}
     
     \bibliographystyle{plainnat}
     \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

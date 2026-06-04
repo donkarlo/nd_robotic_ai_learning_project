@@ -1,0 +1,181 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Graded potentials}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+    \maketitle
+    Graded potentials are changes in membrane potential that vary according to the size of the stimulus, as opposed to being all-or-none.
+    \url{https://en.wikipedia.org/wiki/Graded_potential}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{/home/donkarlo/Dropbox/repo/nd_robotic_ai_learning_project/src/robot/part/body/part/nervous_system/action_potential/graded_or_binary/kinds/graded_potential/graded_potential.png}
+    \end{figure}
+    
+    \cite{juusola-2007-coding-with-spike-shapes-and-graded-potentials-in-cortical-networks} is mainly about action-potential waveform coding. Graded potentials are important because they modulate spike shapes and synaptic transmission. So the paper is about the interaction between digital spikes and analog graded membrane potentials.
+    
+    
+    \section{Waveform Information in Graded Potentials and Graded Spikes}
+        
+        The safer term in the literature is usually graded potential or graded synaptic transmission, not graded action potential. A classical action potential is often treated as an all-or-none event, but several studies show that spike waveform can still vary and modulate synaptic transmission. In particular, spike amplitude, spike width, and spike shape can affect calcium entry and neurotransmitter release \citep{zbili-2019-past-and-future-of-analog-digital-modulation-of-synaptic-transmission}. A more direct case of amplitude-dependent graded spiking is reported in cerebrospinal-fluid-contacting neurons, where different spike amplitudes can signal different neurotransmitter inputs \citep{johnson-2023-graded-spikes-differentially-signal-neurotransmitter-input-in-cerebrospinal-fluid-contacting-neurons-of-the-mouse-spinal-cord}.
+        
+        \subsection{Amplitude or Peak Size}
+            
+            The amplitude of a graded voltage signal can encode stimulus strength, contrast, release strength, or, in specific cells, the type of input. At a visual synapse, contrast can be transmitted not only by the frequency of release events but also by their amplitude \citep{james-2019-an-amplitude-code-transmits-information-at-a-visual-synapse}. In mammalian cone photoreceptors, membrane voltage continuously represents illumination and controls graded vesicle fusion at ribbon synapses \citep{grabner-2023-mechanisms-of-simultaneous-linear-and-nonlinear-computations-at-the-mammalian-cone-photoreceptor-synapse}. In cerebrospinal-fluid-contacting neurons, smaller and larger graded spikes can distinguish purinergic and cholinergic inputs \citep{johnson-2023-graded-spikes-differentially-signal-neurotransmitter-input-in-cerebrospinal-fluid-contacting-neurons-of-the-mouse-spinal-cord}.
+            
+            \begin{equation}
+                A
+                =
+                \max_t |V(t)-V_{\mathrm{rest}}|
+            \end{equation}
+            
+            Therefore, the amplitude can be interpreted as
+            
+            \begin{equation}
+                A
+                \rightarrow
+                \text{stimulus intensity, contrast, release strength, or input identity}.
+            \end{equation}
+        
+        \subsection{Polarity and Sign}
+            
+            The polarity of a graded potential is related to excitation and inhibition. Excitatory postsynaptic potentials increase the probability of postsynaptic firing, whereas inhibitory postsynaptic potentials decrease it. However, the biological effect depends on the reversal potential and its relation to the threshold, not only on the visual direction of voltage change \citep{purves-2001-excitatory-and-inhibitory-postsynaptic-potentials,purves-2001-summation-of-synaptic-potentials}.
+            
+            \begin{equation}
+                \Delta V(t)
+                =
+                V(t)-V_{\mathrm{rest}}
+            \end{equation}
+            
+            A safe interpretation is
+            
+            \begin{equation}
+                \Delta V(t)
+                \rightarrow
+                \text{excitatory or inhibitory tendency, depending on reversal potential and threshold}.
+            \end{equation}
+        
+        \subsection{Rise Time, Slope, and Temporal Precision}
+            
+            The slope and rise time of a graded membrane potential can encode temporal properties of the stimulus. In graded-potential neurons of the blowfly visual system, active membrane properties affect how precisely stimulus velocity is encoded in membrane potential \citep{haag-1998-active-membrane-properties-and-signal-encoding-in-graded-potential-neurons}.
+            
+            \begin{equation}
+                S_{\uparrow}
+                =
+                \max_t \frac{dV(t)}{dt}
+            \end{equation}
+            
+            Thus, slope and rise time can be interpreted as
+            
+            \begin{equation}
+                S_{\uparrow},\ t_{\mathrm{rise}}
+                \rightarrow
+                \text{stimulus dynamics, velocity, and temporal precision}.
+            \end{equation}
+        
+        \subsection{Duration, Decay, and Adaptation}
+            
+            The duration and decay of a graded potential can carry information about stimulus duration, adaptation, and temporal integration. In zebrafish lateral-line hair cells, different cells show different sensitivities, operating ranges, and adaptive properties, allowing weak stimuli to be encoded while preserving dynamic range for stronger deflections \citep{pichler-2019-the-transfer-characteristics-of-hair-cells-encoding-mechanical-stimuli-in-the-lateral-line-of-zebrafish}.
+            
+            \begin{equation}
+                W_{\theta}
+                =
+                t_2-t_1
+            \end{equation}
+            
+            \begin{equation}
+                V(t_1)
+                =
+                V(t_2)
+                =
+                V_{\mathrm{rest}}+\theta A
+            \end{equation}
+            
+            A safe interpretation is
+            
+            \begin{equation}
+                W_{\theta},\ \tau_{\mathrm{decay}}
+                \rightarrow
+                \text{stimulus duration, adaptation, temporal integration, or synaptic release dynamics}.
+            \end{equation}
+        
+        \subsection{Area Under the Waveform}
+            
+            The area under the voltage deviation summarizes amplitude and duration together. This should be treated as a mathematical descriptor of the waveform, not as a claim that the neuron explicitly computes this scalar as a separate biological code.
+            
+            \begin{equation}
+                Q_V
+                =
+                \int_{t_0}^{t_1}
+                \left(V(t)-V_{\mathrm{rest}}\right)
+                dt
+            \end{equation}
+            
+            A safe interpretation is
+            
+            \begin{equation}
+                Q_V
+                \rightarrow
+                \text{total voltage deviation over time}.
+            \end{equation}
+        
+        \subsection{Timing, Latency, and Phase}
+            
+            The timing of the graded response can encode when the stimulus occurred and how quickly the sensory cell or synapse responded. In zebrafish lateral-line hair cells, sustained outputs, transient outputs, and transient return-to-rest signals show that timing and response time course are part of mechanical stimulus encoding \citep{pichler-2019-the-transfer-characteristics-of-hair-cells-encoding-mechanical-stimuli-in-the-lateral-line-of-zebrafish}.
+            
+            \begin{equation}
+                L
+                =
+                t_{\mathrm{onset}}-t_{\mathrm{stimulus}}
+            \end{equation}
+            
+            A safe interpretation is
+            
+            \begin{equation}
+                L,\ t_{\mathrm{peak}},\ \phi
+                \rightarrow
+                \text{stimulus timing, latency, and phase-like timing relationships}.
+            \end{equation}
+        
+        \subsection{Waveform Variability as Cellular-State Information}
+            
+            Waveform variability can also reflect internal cellular state. Spike waveform depends on voltage-gated channel density, channel inactivation, neuromodulation, recent firing history, and axonal or synaptic state. These waveform variations can change calcium entry and synaptic release, which means that spike waveform should not always be treated as biologically irrelevant \citep{zbili-2019-past-and-future-of-analog-digital-modulation-of-synaptic-transmission}.
+            
+            \begin{equation}
+                \text{waveform shape}
+                \rightarrow
+                \text{channel state, membrane state, neuromodulation, firing history, and synaptic strength}.
+            \end{equation}
+        
+        \subsection{Compact Conclusion}
+            
+            For graded potentials, the waveform can carry information through amplitude, polarity, slope, width, decay, timing, and adaptation. For classical action potentials, the main code is usually spike timing and spike rate, but waveform variation can still modulate synaptic transmission. The strongest directly relevant evidence for a true amplitude-based graded spike code is the study of cerebrospinal-fluid-contacting neurons, where different spike amplitudes signal different neurotransmitter inputs \citep{johnson-2023-graded-spikes-differentially-signal-neurotransmitter-input-in-cerebrospinal-fluid-contacting-neurons-of-the-mouse-spinal-cord}.
+            \bibliographystyle{plainnat}
+            \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
