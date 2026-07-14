@@ -1,0 +1,39 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Large-scale brain network}
+\date{}
+
+\begin{document}
+    \maketitle
+    Large-scale brain networks (also known as intrinsic brain networks) are collections of widespread brain regions showing functional connectivity by statistical analysis of the fMRI BOLD signal or other recording methods such as EEG PET and MEG \seeherefooter{https://en.wikipedia.org/wiki/Large-scale_brain_network}
+    
+    \cite{bressler-2010-large-scale-brain-networks-in-cognition-emerging-methods-and-principles} argue that cognition cannot be explained well by isolated brain modules, but by dynamic interactions among distributed large-scale brain networks. They distinguish structural networks, based on anatomical connections, from functional networks, based on coordinated activity among brain regions. The paper reviews methods such as diffusion imaging, fMRI, EEG/MEG, Granger causality, dynamic causal modeling, and graph theory for studying these networks. It highlights major networks such as the default-mode network, central-executive network, and salience network, and explains their roles in self-related cognition, control, attention, and switching. The main conclusion is that large-scale brain network analysis offers a systematic framework for understanding cognition, learning, and cognitive disorders.
+    
+    \bibliographystyle{plainnat}
+    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
