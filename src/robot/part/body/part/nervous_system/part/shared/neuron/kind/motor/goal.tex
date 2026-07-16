@@ -1,18 +1,38 @@
 \documentclass[a4paper]{article}
+
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
-\usepackage{hyperref}
 \usepackage{minted}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
 
-\title{Motor goal}
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{}
 \date{}
+\author{Mohammad Rahmani}
 
 \begin{document}
     \maketitle
-
-    \url{https://en.wikipedia.org/wiki/Motor_goal}
-    % \bibliographystyle{plain}
-    % \bibliography{/home/donkarlo/Dropbox/repo/shared_research/refs/refs}
+    A motor goal is a neurally planned motor outcome that is used to organize motor control.
+    Motor goals are experimentally shown to exist since planned movements can when disrupted adjust to achieve their planned outcome. If, for example, a person makes a movement of their hand to touch or grasp something and unexpected their arm is pushed – their brain automatically reorganizes the movement so it so achieves its intended aim. This also occurs if an arm is perturbed which results in an automatic correction that enables it to fulfill its planned spatial-temporal target \seeherefooter{https://en.wikipedia.org/wiki/Motor_goal}
+    \bibliographystyle{plainnat}
+    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
