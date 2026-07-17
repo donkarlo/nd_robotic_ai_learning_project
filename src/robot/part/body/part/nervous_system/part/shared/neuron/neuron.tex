@@ -1,14 +1,41 @@
 \documentclass[a4paper]{article}
+
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
-\usepackage{hyperref}
 \usepackage{minted}
 \usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
 
-\title{}
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Neuron}
 \date{}
+\author{Mohammad Rahmani}
+
 \begin{document}
     \maketitle
-    \includegraphics[scale=0.2]{neuron.png}
-    Dendrites are the inputs and the axons are the outputs
+    
+    
+    
+    
+    A neuron is an excitable system \seeherefooter{https://mcb.berkeley.edu/courses/mcb137/exercises/Lesson\%206\%20E&O\%20Systems.pdf} and \seeherefooter{https://en.wikipedia.org/wiki/Oscillation} and \seeherefooter{https://en.wikipedia.org/wiki/Neural_oscillation} that lives in a exciatble environment \seeherefooter{https://en.wikipedia.org/wiki/Excitable_medium}.
+    \bibliographystyle{plainnat}
+    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
