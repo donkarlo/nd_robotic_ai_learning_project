@@ -1,0 +1,56 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Neural decoding}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+    \maketitle
+    Decoding is converting back nunoral response to simulation of stimuli
+    
+    Neural decoding is a neuroscience field concerned with the hypothetical reconstruction of sensory and other stimuli from information that has already been encoded and represented in the brain by networks of neurons \seeherefooter{https://en.wikipedia.org/wiki/Neural_decoding}.
+    
+    Neural decoding concerns how information represented in neural activity can account for perception or behavior. Candidate measures of neural activity are compared with the organism's psychophysical discrimination performance. A neural representation can be rejected as the relevant code if it cannot explain distinctions that the organism can behaviorally make. The strongest coding hypotheses therefore link particular components of population activity systematically to perceptual judgments. Decoding consequently addresses how information contained in neural responses can be used by subsequent neural mechanisms to guide behavior \cite{johnson-2000-neural-coding}.
+    
+    
+    \section{Biological decoding}
+        Mathis et al. describe the brain as a distributed system in which neural populations continuously encode information about the environment and internal body state, while downstream circuits use these representations to support perception, decisions, and actions. The paper reviews neural encoding and decoding, population representations, and mathematical and machine-learning methods used to determine what information neural activity contains and how it may be transformed across brain areas. The authors argue that decoding should move beyond merely predicting stimuli or behavior from neural recordings toward mechanistic models that explain how biological neural circuits themselves read out and transform neural representations to generate behavior \cite{mathis-2024-decoding-the-brain-from-neural-representations-to-mechanistic-models}.
+    
+    
+    \section{Artificial decoding}
+        The researcher takes spikes recorded from the brain and uses an algorithm to infer what the stimulus was or what decision the animal made. This can be called computational neural decoding or experimental neural decoding.
+        
+        Neural decoding uses brain activity recorded from neuronal populations to predict external variables such as movement, decisions, or spatial position. The paper presents a practical tutorial for applying machine-learning algorithms to neural decoding and discusses how neural recordings should be prepared for these methods. It compares traditional approaches such as Wiener and Kalman filters with modern methods including support vector regression, gradient boosting, feedforward neural networks, recurrent networks, and LSTMs. Experiments on spiking activity from motor cortex, somatosensory cortex, and hippocampus show that neural networks and ensemble methods generally achieve higher predictive performance than traditional linear approaches. The authors emphasize that better decoding accuracy can reveal what information is available in neural populations, but high predictive performance alone does not prove that the decoding algorithm implements the same computations as the biological brain \cite{glaser-2020-machine-learning-for-neural-decoding}.
+        
+        This review examines how deep-learning models can decode behavior, perception, and cognitive variables directly from recorded neural signals. It covers neural recording modalities ranging from individual neuronal spikes to population-level signals such as ECoG, EEG, MEG, and fMRI. The authors explain how architectures including fully connected networks, CNNs, RNNs, and LSTMs can learn useful features and nonlinear mappings between neural activity and target variables. Applications reviewed in the paper include decoding movement, speech, and visual information, with some systems predicting intermediate representations before reconstructing the final output. The paper concludes that deep learning provides flexible and often accurate neural decoders, while architecture choice, limited neuroscience datasets, interpretability, and real-time operation remain important considerations \cite{livezey-2021-deep-learning-approaches-for-neural-decoding-across-architectures-and-recording-modalities}.
+        
+        The paper reviews Bayesian methods for extracting information about behavior from experimentally recorded neuronal spike trains. Neural spikes are represented as point processes, while the behavioral variable to be reconstructed is modeled as a hidden state in a state-space model. Bayesian inference combines a statistical model of spike generation with prior knowledge about how the hidden behavioral state changes over time. Recursive Bayesian filtering and Gaussian approximations make it possible to continuously estimate the hidden state as new spikes are observed. The authors demonstrate the framework with motor-cortex recordings in which hand motion is reconstructed from neural spike trains, providing a concrete example of computational neural decoding \cite{koyama-2010-bayesian-decoding-of-neural-spike-trains}.
+        
+        \bibliographystyle{plainnat}
+        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

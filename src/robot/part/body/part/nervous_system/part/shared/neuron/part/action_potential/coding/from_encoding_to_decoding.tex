@@ -1,0 +1,37 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{From encoding to decoding}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+    \maketitle
+    Implicit about the decoding hypothesis is the assumption that neural spiking in the brain somehow represents stimuli in the external world. The decoding of neural data would be impossible if the neurons were firing randomly: nothing would be represented. This process of decoding neural data forms a loop with neural encoding. First, the organism must be able to perceive a set of stimuli in the world – say a picture of a hat. Seeing the stimuli must result in some internal learning: the encoding stage. After varying the range of stimuli that is presented to the observer, we expect the neurons to adapt to the statistical properties of the signals, encoding those that occur most frequently \seeherefooter{https://en.wikipedia.org/wiki/Neural_decoding#Encoding_to_decoding}.
+    \bibliographystyle{plainnat}
+    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
