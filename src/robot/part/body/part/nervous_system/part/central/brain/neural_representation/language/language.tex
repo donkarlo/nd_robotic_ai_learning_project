@@ -1,0 +1,43 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_ai_project/src/nd_ai/knoweldge_representation/language/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Language neural representation}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+    \maketitle
+    
+    \cite{lochy-2018-selective-visual-representation-of-letters-and-words-in-the-left-ventral-occipito-temporal-cortex-with-intracerebral-recordings} directly recorded neural activity from the ventral occipito-temporal cortex of 37 human participants during visual word processing. Neural responses could be distinguished at letter, prelexical, and lexical levels of processing. Letter-selective responses were broadly distributed, whereas prelexical and lexical responses were concentrated in the left middle and anterior fusiform gyrus. Prelexical and lexical neural populations were spatially intermingled rather than arranged in a strict posterior-to-anterior hierarchy. The results show that different levels of written language processing recruit distinguishable neural populations, but not a unique circuit for every individual word.
+    
+    
+    \cite{jamali-2024-semantic-encoding-during-language-comprehension-at-single-cell-resolution} recorded activity from individual neurons in the language-dominant human prefrontal cortex during natural language comprehension. Some neurons responded selectively to particular semantic domains such as actions, objects, food, animals, or people. Across the experiments, 48 of 287 recorded neurons showed significant semantic selectivity. Population activity could predict the semantic category of words, demonstrating a distributed neuronal representation of linguistic meaning. These neural representations were context-dependent, showing that word meaning is dynamically encoded according to the sentence in which the word occurs.
+    
+    
+    \bibliographystyle{plainnat}
+    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
