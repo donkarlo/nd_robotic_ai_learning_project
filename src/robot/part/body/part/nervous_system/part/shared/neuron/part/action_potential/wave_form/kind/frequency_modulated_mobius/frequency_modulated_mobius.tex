@@ -30,93 +30,93 @@
 \author{Mohammad Rahmani}
 
 \begin{document}
-    \maketitle
-    
-    \seeherefooter{https://journal.r-project.org/articles/RJ-2022-015/}
-    
-    \cite{rueda-2021-a-novel-wave-decomposition-for-oscillatory-signals}
-    and
-    \cite{rodriguez-collado-2021-identification-of-action-potential-waveforms}
-    propose a wave decomposition method for oscillatory signals based on Frequency Modulated M\"obius (FMM) waves.
-    The method represents complex oscillatory patterns as a sum of interpretable wave components with parameters controlling amplitude, phase, location, and shape.
-    For action-potential-like curves, its main value is that it provides a citable mathematical basis for approximating signal waveforms by combining several FMM components.
-    
-    A single FMM wave can be written as follows:
-    
-    \begin{equation}
-        X(t)
-        =
-        M
-        +
-        A
-        \cos
-        \Biggl[
-            \beta
-            +
-            2
-            \arctan
-            \Biggl(
-            \omega
-            \tan
-            \Bigl(
-            \frac{t-\alpha}{2}
-            \Bigr)
-            \Biggr)
-            \Biggr]
-    \end{equation}
-    
-    \begin{itemize}
-        \item $X(t)$ is the value of the FMM wave at time $t$.
-        
-        \item $M$ is the baseline parameter. Bound: $M \in \mathbb{R}$.
-        It controls the vertical shift of the FMM signal without changing
-        the waveform shape, phase, or temporal deformation.
-        
-        \item $t$ is time. Bound: $t \in [0, 2\pi)$.
-        
-        \item $A$ is the amplitude parameter. Bound: $A \geq 0$.
-        It controls the vertical scale of the waveform.
-        
-        \item $\alpha$ is the location parameter. Bound:
-        $\alpha \in [0, 2\pi)$. It controls the horizontal position of
-        the waveform on the time axis.
-        
-        \item $\beta$ is the phase parameter. Bound:
-        $\beta \in [0, 2\pi)$. It controls the internal phase of the wave.
-        Together with $\alpha$ and $\omega$, it determines the temporal
-        position of the maximum and minimum points of the waveform.
-        
-        \item $\omega$ is the shape parameter. Bound:
-        $\omega \in (0, 1]$. It controls the sharpness, skewness, and
-        temporal deformation of the waveform. When $\omega$ is close to
-        zero, the waveform becomes more spike-like; when $\omega$ is close
-        to one, the waveform becomes more similar to a sinusoidal wave.
-        
-        \item $\cos(\cdot)$ is the cosine function used to generate the
-        oscillatory waveform.
-        
-        \item $\arctan(\cdot)$ is the inverse tangent function used inside
-        the phase transformation.
-        
-        \item $\tan(\cdot)$ is the tangent function used to transform the
-        time variable before applying the inverse tangent.
-        
-        \item $\beta + 2 \arctan\bigl(\omega
-        \tan\bigl(\frac{t-\alpha}{2}\bigr)\bigr)$ is the phase function of
-        the FMM wave.
-    \end{itemize}
-    
-    
-    \section{Properties}
-        \begin{itemize}
-            \item The period of FMM wave is $$2\pi$$
-        \end{itemize}
-    
-    
-    \section{Implementations}
-        For python implementation \seeherefooter{https://github.com/FMMGroupVa/fmmpy} and for R package \seeherefooter{https://cran.r-project.org/web/packages/FMM/vignettes/FMMVignette.html}
-        
-        
-        \bibliographystyle{plainnat}
-        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   \maketitle
+
+   \seeherefooter{https://journal.r-project.org/articles/RJ-2022-015/}
+
+   \cite{rueda-2021-a-novel-wave-decomposition-for-oscillatory-signals}
+   and
+   \cite{rodriguez-collado-2021-identification-of-action-potential-waveforms}
+   propose a wave decomposition method for oscillatory signals based on Frequency Modulated M\"obius (FMM) waves.
+   The method represents complex oscillatory patterns as a sum of interpretable wave components with parameters controlling amplitude, phase, location, and shape.
+   For action-potential-like curves, its main value is that it provides a citable mathematical basis for approximating signal waveforms by combining several FMM components.
+
+   A single FMM wave can be written as follows:
+
+   \begin{equation}
+      X(t)
+      =
+      M
+      +
+      A
+      \cos
+      \Biggl[
+      \beta
+      +
+      2
+      \arctan
+      \Biggl(
+      \omega
+      \tan
+      \Bigl(
+      \frac{t-\alpha}{2}
+      \Bigr)
+      \Biggr)
+      \Biggr]
+   \end{equation}
+
+   \begin{itemize}
+      \item $X(t)$ is the value of the FMM wave at time $t$.
+
+      \item $M$ is the baseline parameter. Bound: $M \in \mathbb{R}$.
+      It controls the vertical shift of the FMM signal without changing
+      the waveform shape, phase, or temporal deformation.
+
+      \item $t$ is time. Bound: $t \in [0, 2\pi)$.
+
+      \item $A$ is the amplitude parameter. Bound: $A \geq 0$.
+      It controls the vertical scale of the waveform.
+
+      \item $\alpha$ is the location parameter. Bound:
+      $\alpha \in [0, 2\pi)$. It controls the horizontal position of
+      the waveform on the time axis.
+
+      \item $\beta$ is the phase parameter. Bound:
+      $\beta \in [0, 2\pi)$. It controls the internal phase of the wave.
+      Together with $\alpha$ and $\omega$, it determines the temporal
+      position of the maximum and minimum points of the waveform.
+
+      \item $\omega$ is the shape parameter. Bound:
+      $\omega \in (0, 1]$. It controls the sharpness, skewness, and
+      temporal deformation of the waveform. When $\omega$ is close to
+      zero, the waveform becomes more spike-like; when $\omega$ is close
+      to one, the waveform becomes more similar to a sinusoidal wave.
+
+      \item $\cos(\cdot)$ is the cosine function used to generate the
+      oscillatory waveform.
+
+      \item $\arctan(\cdot)$ is the inverse tangent function used inside
+      the phase transformation.
+
+      \item $\tan(\cdot)$ is the tangent function used to transform the
+      time variable before applying the inverse tangent.
+
+      \item $\beta + 2 \arctan\bigl(\omega
+      \tan\bigl(\frac{t-\alpha}{2}\bigr)\bigr)$ is the phase function of
+      the FMM wave.
+   \end{itemize}
+
+
+   \section{Properties}
+      \begin{itemize}
+         \item The period of FMM wave is $$2\pi$$
+      \end{itemize}
+
+
+   \section{Implementations}
+      For python implementation \seeherefooter{https://github.com/FMMGroupVa/fmmpy} and for R package \seeherefooter{https://cran.r-project.org/web/packages/FMM/vignettes/FMMVignette.html}
+
+
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
