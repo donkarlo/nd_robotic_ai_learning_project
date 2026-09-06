@@ -1,0 +1,346 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+
+\usepackage{amsmath,amssymb}
+
+\usepackage{minted}
+
+\usepackage{multirow}
+
+\usepackage{float}
+
+\usepackage{algorithm}
+
+\usepackage{algpseudocode}
+
+\usepackage{todonotes}
+
+\usepackage{forest}
+
+\usepackage{xstring}
+
+\usepackage{xcolor}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage{xparse}
+
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+
+\usegdlibrary{layered}
+
+% for external graphviz
+
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/parts/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Forms of Metacognition: A Rigorous Research Synthesis}
+
+\date{}
+
+\author{Mohammad Rahmani}
+
+\begin{document}
+
+   \maketitle
+
+   \section{Executive Summary}
+
+   Metacognition is commonly defined as cognition about cognition: the capacity to represent, monitor, evaluate, and regulate one's own, and sometimes others', cognitive processes. Classic developmental and cognitive traditions treat metacognition as involving at minimum metacognitive knowledge, metacognitive regulation or control, and metacognitive experiences or judgments. These components overlap conceptually, but they are not identical across theoretical models.
+
+   Three influential theoretical anchors organize much of the modern literature. First, John H. Flavell's formative account characterizes metacognition through metacognitive knowledge and metacognitive experiences during goal-directed cognitive enterprises. Second, the meta-level/object-level framework of Thomas O. Nelson and Louis Narens formalizes metacognition as monitoring, in which information flows from object-level to meta-level, and control, in which the meta-level intervenes on the object-level. This framework also distinguishes prospective from retrospective monitoring. Third, contemporary educational and measurement work often separates knowledge of cognition from regulation of cognition, with knowledge including declarative, procedural, and conditional knowledge, and regulation including planning, monitoring, debugging, and evaluation.
+
+   When the literature refers to ``forms'' or ``kinds'' of metacognition, it usually points to one or more of the following distinctions:
+
+   \begin{itemize}
+      \item \textbf{Content distinctions:} what the meta-level represents, such as declarative, procedural, or conditional knowledge.
+      \item \textbf{Process distinctions:} what is done with metacognitive representations, such as planning, monitoring, evaluation, strategy selection, or error detection.
+      \item \textbf{Judgment and experience distinctions:} how metacognitive states are felt or reported, such as confidence, feeling-of-knowing, tip-of-the-tongue states, judgments of learning, and prospective versus retrospective judgments.
+   \end{itemize}
+
+   Measurement is a central controversy. Self-report questionnaires are scalable and useful for beliefs and typical strategy use, but they are imperfect proxies for online monitoring and control. Behavioral paradigms, such as trial-by-trial confidence, judgments of learning, feeling-of-knowing tasks, and explicit error-awareness reports, provide tighter task coupling but can be confounded by first-order performance and response bias. Type-2 signal-detection approaches, including meta-$d'$, and the distinction among metacognitive bias, sensitivity, and efficiency were developed to reduce these confounds, although no single measure solves all construct-validity problems.
+
+   Empirically, metacognitive judgments are informative but fallible. Judgments of learning rely on intrinsic, extrinsic, and mnemonic cues; delayed judgments can improve predictive accuracy. Confidence is typically correlated with correctness, but calibration and discrimination vary across people and tasks. Dissociations between task performance and metacognitive sensitivity support treating metacognition as a partly distinct capacity with identifiable neural correlates, often involving anterior or rostrolateral prefrontal regions, together with performance-monitoring circuitry such as medial frontal and anterior cingulate systems.
+
+   The domain-generality question remains open. Evidence supports both shared, generic confidence signals and domain-specific metacognitive representations across memory and perception.
+
+   Practically, metacognition is operationalized in education through self-questioning, reciprocal teaching, reflective prompts, and self-regulated learning cycles; in clinical science through metacognitive beliefs and interventions; and in AI through metareasoning, introspective monitoring, uncertainty estimation, calibration, and reflective agents. These applications inherit important limitations, including fragile transfer, disagreement among measurements, and the danger of over-interpreting verbal self-reports, whether human or machine, as genuine metacognitive competence.
+
+   \section{Definitions and Core Components}
+
+   \subsection{Definition}
+
+   A compact, consensus-compatible definition is that metacognition comprises mechanisms that represent and use information about cognition to monitor and regulate cognitive activity. This aligns with early developmental accounts emphasizing metacognitive knowledge and experiences, monitoring-control architectures that formalize information flow between object- and meta-levels, and educational measurement traditions separating knowledge of cognition from regulation of cognition.
+
+   \subsection{Core Components}
+
+   \begin{itemize}
+      \item \textbf{Metacognitive knowledge (MK):} relatively stable beliefs or knowledge about oneself as a cognizer, tasks, strategies, and the conditions that influence performance. It is often subdivided into declarative, procedural, and conditional knowledge.
+      \item \textbf{Metacognitive regulation (MR):} processes that use metacognitive information to steer cognition, often decomposed into planning, monitoring, debugging, and evaluation, with strategy selection and resource allocation as related sub-functions.
+      \item \textbf{Metacognitive experiences (ME):} online, often conscious experiences or judgments that accompany cognition, such as feelings of knowing, confidence, and feelings of difficulty.
+   \end{itemize}
+
+   \subsection{A Unifying Relationships Diagram}
+
+   \begin{figure}[H]
+      \centering
+      \begin{forest}
+         for tree={
+            draw,
+            rounded corners,
+            align=center,
+            edge={->},
+            l sep=11mm,
+            s sep=5mm,
+            font=\small
+         }
+         [Metacognition
+            [Metacognitive Knowledge
+               [Declarative\\what/that]
+               [Procedural\\how]
+               [Conditional\\when/why]
+            ]
+            [Metacognitive Regulation / Control
+               [Planning]
+               [Monitoring]
+               [Debugging / Error correction]
+               [Evaluation]
+               [Strategy selection / Resource allocation]
+            ]
+            [Metacognitive Experiences / Judgments
+               [Prospective\\EOL, JOL, FOK]
+               [Retrospective\\confidence]
+               [Metacognitive feelings\\difficulty, familiarity, TOT]
+            ]
+         ]
+      \end{forest}
+      \caption{Synthesis of common component decompositions of metacognition.}
+   \end{figure}
+
+   \subsection{Monitoring--Control Loop}
+
+   In monitoring--control models, object-level cognition includes perception, memory, reasoning, and action. Monitoring signals update a meta-level model; the meta-level then issues control signals that alter object-level processing. Social or collaborative context can also contribute metacognitive dialogue and socially shared regulation. A further structural distinction concerns domain-specific and domain-general components.
+
+   \section{Forms and Kinds of Metacognition in Literature and Practice}
+
+   \subsection{Metacognitive Knowledge Forms}
+
+   \subsubsection{Declarative Metacognitive Knowledge: Knowing What or That}
+
+   Declarative metacognitive knowledge is explicit knowledge about one's cognitive strengths and limitations, the nature of tasks, and available strategies. Component models treat it as reportable knowledge that can be retrieved to guide control, although it may be incomplete or inaccurate. Common measurements include self-report scales, structured interviews, and knowledge tests. A recurring empirical point is that declarative knowledge can exist without effective online control: knowing a strategy does not imply that it will be adaptively deployed. Applications include explicit strategy instruction in education, psychoeducation in clinical contexts, and explicit documentation of system limits in AI. Its main limitation is that self-report may measure beliefs rather than actual competence.
+
+   \subsubsection{Procedural Metacognitive Knowledge: Knowing How}
+
+   Procedural metacognitive knowledge concerns how to execute cognitive strategies, such as self-testing, summarizing, or allocating study time. It is often treated as skill-like or compiled knowledge that turns explicit knowledge into action. Measurement can use strategy-execution tasks, process tracing, think-aloud protocols, or coarse questionnaire proxies. Procedural competence may be partly implicit, so questionnaires can under-detect it, while verbal reports can overstate it. In AI, the closest analogue is a meta-level policy that determines when to search, verify, or abstain.
+
+   \subsubsection{Conditional Metacognitive Knowledge: Knowing When or Why}
+
+   Conditional metacognitive knowledge is knowledge of the conditions under which strategies should be used and why they help. It is closely related to control because strategy selection requires beliefs about task demands and expected payoffs. Measurement includes scenario-judgment tasks, conditional-knowledge questionnaire subscales, and adaptive strategy-switch tasks. A recurring educational problem is inert knowledge: learners can describe strategies but fail to apply them in the appropriate situation. This form is difficult to measure without realistic tasks, and apparent knowledge can be a post-hoc rationalization.
+
+   \subsection{Metacognitive Regulation Forms}
+
+   \subsubsection{Planning}
+
+   Planning includes setting goals, activating relevant knowledge, selecting strategies, and allocating effort or time before or early in task performance. It appears in educational models of regulation, self-regulated learning cycles, and meta-level control architectures. Measurements include planning prompts, plan-quality rubrics, time-allocation decisions, study scheduling, and trace data. Planning is most useful when it leads to actionable strategy selection and is later coupled to monitoring and revision. A major limitation is overlap with motivation and executive function.
+
+   \subsubsection{Monitoring}
+
+   Monitoring is the online tracking of comprehension, performance, or strategy effectiveness during task execution. It is central to monitoring--control loops because monitoring updates the meta-level representation that guides control. Common measures include confidence judgments, comprehension checks, self-tests, process probes, reading-time patterns, and other process data. Monitoring judgments are cue-based and can be biased or incomplete, so monitoring accuracy must be distinguished from response bias and first-order skill.
+
+   \subsubsection{Evaluation}
+
+   Evaluation is post-task assessment of outcomes and the effectiveness of the strategies used, often feeding back into future planning. It is emphasized in educational regulation taxonomies and in self-reflection phases of self-regulated learning. Measurement can use post-task reflections, error analyses, calibration curves, and strategy-effectiveness ratings. Reflection is not automatically corrective: evaluation can be confirmatory or self-serving, and poor performers can overestimate their own performance.
+
+   \subsubsection{Self-Reflection as a Metacognitive Practice}
+
+   Self-reflection is sustained inspection and evaluation of one's thoughts, feelings, or behavior, often aimed at goal-directed change. It should be distinguished from rumination. Measurement includes the Self-Reflection and Insight Scale, diaries, and qualitative coding. Applications include learning journals, clinical interventions, and AI reflection modules. The construct is broad and can overlap with mindfulness, insight, and rumination, while introspective reports can be distorted.
+
+   \subsubsection{Self-Questioning as Metacognitive Prompting}
+
+   Self-questioning is the generation of questions intended to guide comprehension, connect new material to prior knowledge, and check understanding. It acts as a regulation strategy that creates monitoring checkpoints. Measurement includes counts and quality ratings of generated questions, dialogue coding, comprehension outcomes, and learning-system traces. Effects depend strongly on question type, prior knowledge, and scaffolding.
+
+   \subsubsection{Error Detection and Debugging}
+
+   Error detection is the detection that an error occurred or is likely to have occurred, often followed by corrective control. Behavioral measures include error rates, post-error slowing, and explicit error-awareness reports. Neurophysiological measures include the error-related negativity (ERN) and error positivity (Pe). The ERN is debated as an index of conscious awareness because some error processing is rapid and automatic, whereas the Pe is more consistently associated with subjective error awareness. Functional imaging commonly implicates anterior cingulate and broader performance-monitoring networks. A key limitation is that automatic error processing is not automatically equivalent to metacognition.
+
+   \subsubsection{Strategy Selection}
+
+   Strategy selection is choosing among available strategies based on monitoring information and expected payoff, such as deciding between restudy and self-test. It is central to meta-level control. Measurements include choice paradigms, control-of-study tasks, tutoring logs, and prospective judgments that predict control choices. Apparent strategy selection may reflect habits or constraints rather than metacognitive optimization, so causal inference requires experimental manipulation of monitoring information.
+
+   \subsubsection{Cognitive Control as a Metacognition-Adjacent Construct}
+
+   Cognitive control refers to mechanisms that bias processing and action in service of goals, such as attention control, inhibition, and task switching. It overlaps with metacognitive control but should not be treated as identical to metacognition. Metacognitive ability can vary independently of first-order performance, yet both involve overlapping prefrontal systems. Conflating executive function and metacognition can blur constructs and inflate intervention claims.
+
+   \section{Metacognitive Experiences and Judgment Forms}
+
+   \subsection{Confidence Judgments}
+
+   Confidence judgments are subjective estimates that a just-made decision or answer is correct. They are a dominant laboratory measure of metacognitive monitoring. The literature distinguishes metacognitive bias, sensitivity, and efficiency. Measurement includes trial-by-trial confidence, calibration curves, over- or under-confidence, AUROC2, meta-$d'$, and ratios such as meta-$d'/d'$. Confidence is meaningfully associated with accuracy, but it is influenced by task difficulty, scale use, incentives, and social context.
+
+   \subsection{Feeling-of-Knowing}
+
+   Feeling-of-knowing (FOK) is a judgment that currently unrecalled information is nevertheless known and likely to be recognized or retrieved later. It is typically measured using recall--judge--recognize paradigms. FOK predicts later performance, but different criterion tests can yield different accuracy relations, suggesting that monitoring is multidimensional. Accuracy depends on task structure and available cues.
+
+   \subsection{Judgments of Learning}
+
+   Judgments of learning (JOLs) are predictions, made during or shortly after study, about later memory performance. Cue-utilization accounts distinguish intrinsic, extrinsic, and mnemonic cues. Immediate versus delayed JOL paradigms are especially influential; delayed JOLs can yield markedly improved predictive accuracy. JOLs remain vulnerable to fluency illusions, and transfer from laboratory tasks to real educational settings is not guaranteed.
+
+   \subsection{Tip-of-the-Tongue States}
+
+   Tip-of-the-tongue (TOT) states are experiences of imminent retrieval in which a word cannot yet be recalled but feels accessible, often together with partial phonological or semantic information. They are studied using elicitation paradigms and diary methods. The literature reports that TOT experiences are common and often include partial access, but definitions and methods vary substantially.
+
+   \subsection{Prospective versus Retrospective Monitoring}
+
+   Prospective monitoring predicts future performance and includes ease-of-learning judgments, judgments of learning, and feelings of knowing. Retrospective monitoring evaluates past performance and is often measured through confidence about a completed response. Different judgment types can correlate only weakly, suggesting multiple monitoring channels. Prospective judgments can be biased by fluency and theoretical beliefs, while retrospective confidence can be influenced by feedback and social context.
+
+   \section{Social and Collaborative Forms}
+
+   \subsection{Metacognitive Dialogue}
+
+   Metacognitive dialogue refers to metacognitive processes that are expressed and negotiated through talk, including explaining strategies, monitoring understanding, and planning next steps. Measurement uses discourse coding, conversation analysis, and logs from computer-supported collaborative learning. Reciprocal teaching provides a representative example in which structured dialogue improves comprehension monitoring and can improve independent comprehension outcomes. A limitation is that amount of talk is not equivalent to quality of metacognition.
+
+   \subsection{Collaborative Metacognition and Socially Shared Regulation}
+
+   Collaborative metacognition extends monitoring and control to the group level through shared goals, shared monitoring, and coordinated changes in strategy. Measurement includes group discourse coding and team-level trace measures. The literature supports socially shared regulation, but definitions and methods remain heterogeneous. A central concern is level of analysis: apparent group-level regulation may actually reflect one strong individual rather than genuinely shared metacognition.
+
+   \section{Domain-General versus Domain-Specific Metacognition}
+
+   The domain-generality question asks whether metacognition relies on a common resource across perception, memory, and other tasks, or on domain-specific systems that correlate only partly. Contemporary cognitive neuroscience often treats generic confidence or readout signals and domain-specific representational content as coexisting. Measurement includes cross-task correlations of metacognitive efficiency, multivariate neuroimaging, and lesion or neuropsychological dissociations. Findings are mixed and highly sensitive to measurement reliability and metric choice.
+
+   \section{Measurement Methods, Experimental Paradigms, and Instruments}
+
+   \subsection{Questionnaires and Self-Report Inventories}
+
+   These are best suited to beliefs, typical strategy use, metacognitive knowledge, and perceived regulation. Representative instruments include the Metacognitive Awareness Inventory (MAI), the Motivated Strategies for Learning Questionnaire (MSLQ), the Self-Reflection and Insight Scale (SRIS), and the Metacognitions Questionnaire and MCQ-30. Their main limitation is that they may not track online monitoring accuracy and are susceptible to social desirability and introspective limits.
+
+   \subsection{Behavioral Performance plus Metacognitive Judgments}
+
+   These paradigms couple task performance to trial-by-trial metacognitive reports, such as confidence, JOL, or FOK. Their goal is to estimate monitoring accuracy and its relation to objective correctness. Analyses should distinguish bias, sensitivity, and efficiency, with signal-detection-based measures such as meta-$d'$ used when appropriate.
+
+   \subsection{Process Tracing}
+
+   Process tracing is used to study how regulation unfolds over time. Examples include think-aloud protocols, reading-time patterns, study-time allocation, help-seeking behavior, log files from learning environments, and discourse coding in collaborative work.
+
+   \subsection{Physiological and Neuroimaging Markers}
+
+   These methods provide mechanistic constraints and help distinguish subjective report from automatic monitoring. Examples include ERN and Pe in error-awareness paradigms and structural or functional correlates of metacognitive ability in prefrontal and parietal systems.
+
+   \subsection{Suggested Experimental Paradigms}
+
+   \begin{itemize}
+      \item \textbf{Confidence-based metacognition:} two-alternative forced-choice discrimination with trial-by-trial confidence; compute AUROC2 and/or meta-$d'/d'$ and separate bias from sensitivity.
+      \item \textbf{JOL paradigms:} paired associates or concept learning followed by immediate versus delayed JOLs; evaluate resolution and calibration.
+      \item \textbf{FOK paradigms:} general-information questions, recall attempt, FOK judgment on unrecalled items, and a later recognition or relearning criterion test.
+      \item \textbf{Error-awareness paradigms:} speeded tasks such as Flanker or Go/No-Go with explicit error signaling; combine ERN/Pe with behavioral post-error adjustments.
+      \item \textbf{Strategy-selection paradigms:} allow participants to choose between restudy and test, allocate time across items, or decide when to stop searching memory; relate choices to JOL/FOK and cue use.
+      \item \textbf{Collaborative metacognition:} group problem solving with scripted planning and monitoring checkpoints; code metacognitive dialogue and shared-regulation episodes.
+   \end{itemize}
+
+   \section{Applications Across Education, Clinical Science, and AI}
+
+   \subsection{Education and Learning Sciences}
+
+   Educational interventions tend to work best when explicit strategy knowledge is combined with structured opportunities for monitoring and control. Reciprocal teaching rotates dialogue roles around summarizing, questioning, clarifying, and predicting, explicitly targeting comprehension monitoring and regulation. Self-questioning and explanatory answering can improve learning when they induce meaningful connection with prior knowledge. Self-regulated learning models emphasize cyclical forethought, performance, and self-reflection. Instruments such as MAI and MSLQ are widely used, but they do not replace task-coupled measures of metacognitive accuracy.
+
+   \subsection{Clinical Science and Psychotherapy}
+
+   Clinical approaches often emphasize metacognitive beliefs and repetitive thinking. The Metacognitions Questionnaire and MCQ-30 assess beliefs about worry and intrusive thoughts. Metacognitive therapy aims to modify metacognitive processes or beliefs that maintain worry. Metacognitive training in psychosis targets biases such as overconfidence in errors and jumping-to-conclusions tendencies. Clinical metacognition should not be conflated with laboratory type-2 sensitivity because the constructs and measurements differ.
+
+   \subsection{AI, Machine Learning, and Computational Metacognition}
+
+   In AI, metacognition and metareasoning generally refer to systems that monitor and control their own reasoning or computation. Computational metacognition treats the system itself as a domain of reasoning and emphasizes self-monitoring and control. Metareasoning formalizes control over computational activities under resource constraints. Predictive confidence in machine learning can be poorly calibrated, motivating post-hoc calibration methods such as temperature scaling. In large language models, confidence estimation may use logits, prompting, verbal confidence, judge models, or trainable confidence estimators. Reflective agent architectures use feedback and stored reflections to modify future behavior, but recent analyses caution that reflection can be confirmatory and may fail to correct initially wrong answers. Active learning provides a further control analogue because the system decides when and which examples to query for labels.
+
+   \section{Comparative Synthesis}
+
+   \begin{itemize}
+      \item \textbf{Declarative MK:} facts and beliefs about cognition, tasks, and strategies. Easy to teach and assess, but weakly linked to online control and vulnerable to self-report bias.
+      \item \textbf{Procedural MK:} know-how for executing strategies. More actionable, but difficult to isolate from general ability and can remain implicit.
+      \item \textbf{Conditional MK:} knowledge of when and why strategies should be used. Important for transfer, but requires realistic tasks for valid measurement.
+      \item \textbf{Planning:} pre-task goal setting and resource allocation. Useful when enacted, but confounded with motivation and executive function.
+      \item \textbf{Monitoring:} online tracking of understanding and performance. Central to control loops, but susceptible to bias and introspective limits.
+      \item \textbf{Evaluation:} post-task appraisal and updating. Supports adaptation, but may be confirmatory or self-serving.
+      \item \textbf{Self-reflection:} sustained inspection of internal states and behavior. Captures reflective practice but overlaps with rumination and insight.
+      \item \textbf{Self-questioning:} generated questions for checking and explaining. Can deepen processing, but effects depend on scaffolding.
+      \item \textbf{Error detection:} detecting errors and triggering correction. Mechanistically tractable, but automatic detection is not necessarily conscious metacognition.
+      \item \textbf{Strategy selection:} choosing strategies based on monitoring. Directly operationalizes control, but choices can reflect habit or constraint.
+      \item \textbf{Confidence judgments:} retrospective probability of correctness. Quantitative and portable across domains, but affected by bias and reporting scale.
+      \item \textbf{FOK:} belief that unrecalled information is retrievable. Useful for prospective monitoring, but strongly cue dependent.
+      \item \textbf{JOL:} prediction of later learning or recall. Demonstrates cue-based monitoring but is vulnerable to fluency illusions.
+      \item \textbf{TOT:} feeling of imminent retrieval. Naturalistic but theoretically and operationally heterogeneous.
+      \item \textbf{Social metacognitive dialogue:} metacognition expressed in interaction. Observable, but talk itself is not equivalent to regulation.
+      \item \textbf{Collaborative metacognition / SSRL:} shared monitoring and control at group level. Appropriate for team tasks but vulnerable to level-of-analysis errors.
+      \item \textbf{Domain-general versus domain-specific metacognition:} a structural question about shared versus specialized resources. Important for transfer, but sensitive to reliability and metric choice.
+   \end{itemize}
+
+   \section{Recommended Seminal and Recent Sources}
+
+   \subsection{Foundational and Seminal}
+
+   \begin{itemize}
+      \item Flavell (1979), \emph{Metacognition and Cognitive Monitoring}: classic definitional framing of metacognitive knowledge and experiences.
+      \item Nelson and Narens (1990; 1994): meta-level/object-level monitoring--control framework and distinctions among EOL, JOL, FOK, prospective, and retrospective monitoring.
+      \item Koriat (1997): cue-utilization account of judgments of learning.
+      \item Hart (1965): early feeling-of-knowing paradigm.
+      \item Nelson et al. (1984): FOK accuracy and criterion-test dependence.
+      \item Dunlosky and Nelson (1992): delayed-JOL effect and cue dependence.
+   \end{itemize}
+
+   \subsection{Measurement and Cognitive Neuroscience}
+
+   \begin{itemize}
+      \item Fleming and Lau (2014), \emph{How to Measure Metacognition}: bias, sensitivity, efficiency, and measurement cautions.
+      \item Maniscalco and Lau (2012): meta-$d'$ for metacognitive sensitivity.
+      \item Fleming et al. (2010): dissociation of metacognitive ability from first-order performance and structural correlates.
+      \item Rouault et al. (2018): domain-general versus domain-specific metacognition review and synthesis.
+      \item Morales et al. (2018): coexistence of domain-general and domain-specific metacognitive representations.
+   \end{itemize}
+
+   \subsection{Education and Self-Regulated Learning}
+
+   \begin{itemize}
+      \item Metacognitive Awareness Inventory (MAI): operationalization of declarative, procedural, and conditional knowledge together with regulation subcomponents.
+      \item Pintrich et al. (1991), MSLQ manual: motivational and learning-strategy scales including metacognitive self-regulation.
+      \item Zimmerman (2002): cyclical phases of self-regulated learning, including forethought, performance, and self-reflection.
+      \item Brown and Palincsar (1985): reciprocal teaching and comprehension monitoring.
+      \item Pressley et al. (1992): explanatory answering and mindful use of prior knowledge.
+   \end{itemize}
+
+   \subsection{Clinical Metacognition}
+
+   \begin{itemize}
+      \item Cartwright-Hatton and Wells (1997): development of the Metacognitions Questionnaire.
+      \item Wells and Cartwright-Hatton (2004): MCQ-30 short form.
+      \item Wells et al. (2010): pilot randomized trial of metacognitive therapy versus applied relaxation in generalized anxiety disorder.
+      \item Moritz and Woodward (2007): review of metacognitive training in schizophrenia.
+   \end{itemize}
+
+   \subsection{AI and Machine Learning Analogues}
+
+   \begin{itemize}
+      \item Cox (2005): history of metacognition in computation and the system as its own domain of reasoning.
+      \item Russell and Wefald (1991): principles of metareasoning and meta-level control under constraints.
+      \item Guo et al. (2017): calibration of modern neural networks and temperature scaling.
+      \item Liu et al. (2025): survey of uncertainty quantification and confidence calibration in large language models.
+      \item Shinn et al. (2023): Reflexion and reflective memory for agent behavior improvement.
+      \item Kang et al. (2025/2026 submission context): analysis challenging strong claims about inference-time reflection as an error-correction mechanism.
+   \end{itemize}
+
+   \section{Scope and Limitations of This Synthesis}
+
+   The source document prioritizes English-language, peer-reviewed psychology, neuroscience, education, and mainstream machine-learning and AI literature. It does not claim an exhaustive taxonomy of every niche subfield, such as animal metacognition or all philosophical higher-order theories, except where they directly inform the forms summarized above. Representative rather than comprehensive empirical findings are emphasized for each form.
+
+   \bibliographystyle{plainnat}
+
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+
+\end{document}
