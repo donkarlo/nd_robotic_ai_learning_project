@@ -1,0 +1,689 @@
+\definecolor{diagramroot}{RGB}{244,95,116}
+\definecolor{diagrammajor}{RGB}{255,140,161}
+\definecolor{diagramconcept}{RGB}{180,210,234}
+\definecolor{diagramprocess}{RGB}{172,205,161}
+\definecolor{diagramsystem}{RGB}{249,220,140}
+\definecolor{diagramdetail}{RGB}{255,178,85}
+\forestset{
+    diagram node/.style={
+        draw=black,
+        rounded corners=1pt,
+        align=center,
+        font=\sffamily\tiny,
+        inner xsep=2.5pt,
+        inner ysep=2pt,
+        minimum height=5mm,
+        text width=18mm
+    },
+    root node/.style={
+        diagram node,
+        fill=diagramroot,
+        text=white,
+        font=\sffamily\tiny\bfseries
+    },
+    major node/.style={
+        diagram node,
+        fill=diagrammajor
+    },
+    concept node/.style={
+        diagram node,
+        fill=diagramconcept
+    },
+    process node/.style={
+        diagram node,
+        fill=diagramprocess
+    },
+    system node/.style={
+        diagram node,
+        fill=diagramsystem
+    },
+    detail node/.style={
+        diagram node,
+        fill=diagramdetail
+    },
+    note node/.style={
+        diagram node,
+        fill=white,
+        text width=32mm,
+        font=\sffamily\tiny
+    }
+}
+\begin{forest}
+    for tree={
+        grow=south,
+        parent anchor=south,
+        child anchor=north,
+        edge={->},
+        l sep=7mm,
+        s sep=3mm
+    },
+    [
+        {},
+        phantom,
+        afterthought={
+            \draw[->] (n69) to[bend left=10] (n6);
+            \draw[->] (n72) to[bend right=10] (n11);
+            \draw[->] (n90) to[bend left=10] (n97);
+            \draw[->] (n200) to[bend left=10] (n201);
+        }
+        [
+            {Robot},
+            root node,
+            name=n3,
+            no edge
+            [
+                {Mind},
+                major node,
+                name=n17
+                [
+                    {Cognition},
+                    concept node,
+                    name=n173
+                    [
+                        {Object\\level},
+                        concept node,
+                        name=n47
+                        [
+                            {cognitive\\processes},
+                            concept node,
+                            name=n19
+                            [
+                                {memory},
+                                root node,
+                                name=n100
+                                [
+                                    {explicit},
+                                    concept node,
+                                    name=n79
+                                    [
+                                        {long term},
+                                        concept node,
+                                        name=n80
+                                        [
+                                            {episodic},
+                                            concept node,
+                                            name=n89
+                                            [
+                                                {Autobiographic},
+                                                concept node,
+                                                name=n150
+                                                [
+                                                    {Event\\specific\\knowledge},
+                                                    concept node,
+                                                    name=n115
+                                                    [
+                                                        {oldest},
+                                                        detail node,
+                                                        name=n117
+                                                        [
+                                                            {Normal\\scenario},
+                                                            detail node,
+                                                            name=n107
+                                                            [
+                                                                {Plans},
+                                                                detail node,
+                                                                name=n126
+                                                            ]
+                                                            [
+                                                                {Actions},
+                                                                detail node,
+                                                                name=n125
+                                                            ]
+                                                            [
+                                                                {Goal},
+                                                                detail node,
+                                                                name=n105
+                                                            ]
+                                                            [
+                                                                {sensors},
+                                                                detail node,
+                                                                name=n109
+                                                                [
+                                                                    {Lidar\\ranges},
+                                                                    detail node,
+                                                                    name=n111
+                                                                ]
+                                                                [
+                                                                    {GPS},
+                                                                    detail node,
+                                                                    name=n113
+                                                                ]
+                                                                [
+                                                                    {IMU},
+                                                                    detail node,
+                                                                    name=n209
+                                                                ]
+                                                                [
+                                                                    {Battery},
+                                                                    detail node,
+                                                                    name=n210
+                                                                ]
+                                                            ]
+                                                        ]
+                                                        [
+                                                            {follow\\scenario},
+                                                            detail node,
+                                                            name=n108
+                                                        ]
+                                                        [
+                                                            {next-to\\scenario},
+                                                            detail node,
+                                                            name=n244
+                                                        ]
+                                                    ]
+                                                ]
+                                                [
+                                                    {In semantic\\memory},
+                                                    note node,
+                                                    name=n189,
+                                                    edge={->,dashed}
+                                                ]
+                                                [
+                                                    {lifetime},
+                                                    concept node,
+                                                    name=n146
+                                                ]
+                                                [
+                                                    {General events},
+                                                    concept node,
+                                                    name=n144
+                                                ]
+                                            ]
+                                        ]
+                                        [
+                                            {semantic},
+                                            concept node,
+                                            name=n90
+                                            [
+                                                {Plan},
+                                                detail node,
+                                                name=n194
+                                                [
+                                                    {Action\\types},
+                                                    detail node,
+                                                    name=n241
+                                                ]
+                                                [
+                                                    {Goal\\types},
+                                                    detail node,
+                                                    name=n240
+                                                ]
+                                            ]
+                                            [
+                                                {Action\\types},
+                                                detail node,
+                                                name=n192
+                                                [
+                                                    {Suprise\\poise},
+                                                    detail node,
+                                                    name=n195
+                                                ]
+                                            ]
+                                            [
+                                                {Goal\\types},
+                                                detail node,
+                                                name=n140
+                                                [
+                                                    {Suprise\\reduction},
+                                                    detail node,
+                                                    name=n142
+                                                ]
+                                            ]
+                                        ]
+                                        [
+                                            {item\\memory},
+                                            concept node,
+                                            name=n95
+                                            [
+                                                {knowing},
+                                                concept node,
+                                                name=n97
+                                                [
+                                                    {Familiarity},
+                                                    concept node,
+                                                    name=n103
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                    [
+                                        {Short\\term},
+                                        concept node,
+                                        name=n101
+                                        [
+                                            {Holding\\sliding window\\sensory data},
+                                            detail node,
+                                            name=n226
+                                        ]
+                                        [
+                                            {Running\\plan},
+                                            detail node,
+                                            name=n198
+                                            [
+                                                {Goal\\composite},
+                                                detail node,
+                                                name=n200
+                                            ]
+                                            [
+                                                {Action\\composite},
+                                                detail node,
+                                                name=n201
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                                [
+                                    {implicit},
+                                    concept node,
+                                    name=n83
+                                    [
+                                        {skills},
+                                        concept node,
+                                        name=n86
+                                    ]
+                                    [
+                                        {Repetition\\priming},
+                                        concept node,
+                                        name=n85
+                                        [
+                                            {Robotic lab},
+                                            detail node,
+                                            name=n118
+                                            [
+                                                {Sequence to\\sequence\\models},
+                                                detail node,
+                                                name=n93
+                                                [
+                                                    {Architecture},
+                                                    detail node,
+                                                    name=n120
+                                                ]
+                                                [
+                                                    {Training config},
+                                                    detail node,
+                                                    name=n121
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                                [
+                                    {action},
+                                    major node,
+                                    name=n129
+                                    [
+                                        {Segregarion},
+                                        process node,
+                                        name=n131
+                                        [
+                                            {Auto\\correlation},
+                                            detail node,
+                                            name=n132
+                                        ]
+                                        [
+                                            {split},
+                                            detail node,
+                                            name=n133
+                                        ]
+                                        [
+                                            {clustering},
+                                            detail node,
+                                            name=n134
+                                        ]
+                                        [
+                                            {Feature\\slice},
+                                            detail node,
+                                            name=n139
+                                        ]
+                                    ]
+                                    [
+                                        {remembering},
+                                        process node,
+                                        name=n213
+                                        [
+                                            {By\\stimulus},
+                                            system node,
+                                            name=n216
+                                        ]
+                                        [
+                                            {Stimulus\\independent\\thought},
+                                            system node,
+                                            name=n218
+                                            [
+                                                {Mind\\wandering},
+                                                system node,
+                                                name=n220
+                                                [
+                                                    {Default\\brain\\network},
+                                                    system node,
+                                                    name=n222
+                                                ]
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                            [
+                                {executive\\functions},
+                                system node,
+                                name=n205
+                                [
+                                    {Working\\memory},
+                                    system node,
+                                    name=n207
+                                ]
+                            ]
+                            [
+                                {learning},
+                                system node,
+                                name=n29
+                                [
+                                    {Discovering\\optimized\\parameters for a\\thinking model such\\as the weights of a\\neural network},
+                                    note node,
+                                    name=n41,
+                                    edge={->,dashed}
+                                ]
+                            ]
+                            [
+                                {thinking},
+                                system node,
+                                name=n27
+                                [
+                                    {Planning},
+                                    system node,
+                                    name=n23
+                                ]
+                                [
+                                    {Decision\\making},
+                                    system node,
+                                    name=n22
+                                ]
+                                [
+                                    {Changing the\\structure of the\\model, such as the\\architecture of layers},
+                                    note node,
+                                    name=n44,
+                                    edge={->,dashed}
+                                ]
+                                [
+                                    {Concept\\formation},
+                                    system node,
+                                    name=n25
+                                ]
+                                [
+                                    {Problem\\solving},
+                                    system node,
+                                    name=n35
+                                ]
+                                [
+                                    {Reasoning},
+                                    system node,
+                                    name=n36
+                                ]
+                            ]
+                            [
+                                {perception},
+                                system node,
+                                name=n30
+                            ]
+                            [
+                                {attention},
+                                system node,
+                                name=n31
+                            ]
+                        ]
+                        [
+                            {non-cognitive\\processes},
+                            concept node,
+                            name=n75
+                        ]
+                    ]
+                    [
+                        {Meta\\cognition},
+                        concept node,
+                        name=n46
+                        [
+                            {Self-\\consciousness},
+                            concept node,
+                            name=n49
+                            [
+                                {Self-\\awareness},
+                                concept node,
+                                name=n166
+                                [
+                                    {Body\\awareness},
+                                    system node,
+                                    name=n168
+                                ]
+                            ]
+                            [
+                                {The highest level of\\self-awareness},
+                                note node,
+                                name=n170,
+                                edge={->,dashed}
+                            ]
+                        ]
+                        [
+                            {Self-\\monitoring},
+                            concept node,
+                            name=n178
+                        ]
+                        [
+                            {Self-\\evaluation},
+                            concept node,
+                            name=n179
+                        ]
+                        [
+                            {Self-\\regulation},
+                            concept node,
+                            name=n180
+                        ]
+                    ]
+                ]
+                [
+                    {Psyche},
+                    concept node,
+                    name=n171
+                    [
+                        {Consciousness},
+                        concept node,
+                        name=n162
+                        [
+                            {awareness},
+                            concept node,
+                            name=n161
+                        ]
+                    ]
+                    [
+                        {unconsciousness},
+                        concept node,
+                        name=n164
+                    ]
+                ]
+            ]
+            [
+                {body},
+                major node,
+                name=n5
+                [
+                    {Organ\\(link)},
+                    concept node,
+                    name=n51
+                    [
+                        {From here\\down we just have\\action potential},
+                        note node,
+                        name=n57,
+                        edge={->,dashed}
+                    ]
+                ]
+                [
+                    {Limb\\(actuator)},
+                    concept node,
+                    name=n6
+                    [
+                        {To convert\\control input to\\movement},
+                        note node,
+                        name=n62,
+                        edge={->,dashed}
+                    ]
+                ]
+                [
+                    {From here\\down we just have\\action potential},
+                    note node,
+                    name=n42,
+                    edge={->,dashed}
+                ]
+                [
+                    {nervous system},
+                    concept node,
+                    name=n9
+                    [
+                        {shared},
+                        major node,
+                        name=n187
+                        [
+                            {neurons},
+                            detail node,
+                            name=n152
+                            [
+                                {Inter-neuron\\neurons},
+                                concept node,
+                                name=n159
+                            ]
+                            [
+                                {projection\\neurons},
+                                concept node,
+                                name=n155
+                            ]
+                            [
+                                {Motor\\neurons},
+                                concept node,
+                                name=n154
+                            ]
+                            [
+                                {Sensory\\neurons},
+                                concept node,
+                                name=n153
+                            ]
+                        ]
+                        [
+                            {Nerve},
+                            detail node,
+                            name=n185
+                        ]
+                    ]
+                    [
+                        {Central nervous\\system},
+                        system node,
+                        name=n59
+                        [
+                            {Brain\\(CPU/FCU)},
+                            system node,
+                            name=n11
+                            [
+                                {Networks},
+                                system node,
+                                name=n228
+                                [
+                                    {Large scale},
+                                    system node,
+                                    name=n229
+                                    [
+                                        {Default mode\\network},
+                                        system node,
+                                        name=n232
+                                        [
+                                            {Mind\\wandering},
+                                            system node,
+                                            name=n238
+                                        ]
+                                    ]
+                                    [
+                                        {Dorsal\\(when new\\observation)},
+                                        system node,
+                                        name=n233
+                                    ]
+                                    [
+                                        {Ventral\\(when following\\a goal)},
+                                        system node,
+                                        name=n234
+                                    ]
+                                ]
+                            ]
+                        ]
+                        [
+                            {Spinal cord\\(Bus)},
+                            system node,
+                            name=n53
+                            [
+                                {Nerves\\(Circuit board)},
+                                system node,
+                                name=n13
+                            ]
+                        ]
+                        [
+                            {Retinal\\(GPU)},
+                            system node,
+                            name=n14
+                            [
+                                {Sensors with cpus in\\them that they\\preprocessed data before\\sending},
+                                note node,
+                                name=n68,
+                                edge={->,dashed}
+                            ]
+                        ]
+                    ]
+                    [
+                        {From nervous\\for dummies},
+                        note node,
+                        name=n21,
+                        edge={->,dashed}
+                    ]
+                    [
+                        {Peripheral\\nerves},
+                        system node,
+                        name=n55
+                        [
+                            {Automatic},
+                            system node,
+                            name=n66
+                            [
+                                {Enteric},
+                                system node,
+                                name=n64
+                            ]
+                        ]
+                        [
+                            {Somatic\\(voluntary)},
+                            system node,
+                            name=n77
+                            [
+                                {Connects brain and\\spinal cord\\and brain to sensory and skeltal\\muscles\\under conscious\\control},
+                                note node,
+                                name=n224,
+                                edge={->,dashed}
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+        [
+            {Motor\\neurons},
+            process node,
+            name=n69,
+            no edge
+        ]
+        [
+            {Establish connection\\between different parts\\of brain},
+            note node,
+            name=n73,
+            no edge
+            [
+                {projection\\neurons},
+                process node,
+                name=n72,
+                edge={->,dashed}
+            ]
+        ]
+    ]
+\end{forest}
