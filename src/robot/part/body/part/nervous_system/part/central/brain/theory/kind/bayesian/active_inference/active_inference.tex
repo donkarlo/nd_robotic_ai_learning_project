@@ -1,5 +1,52 @@
-\subsubsubsection{Active inference}
-    \url{https://en.wikipedia.org/wiki/Free_energy_principle#Active_inference}
-    \url{https://en.wikipedia.org/wiki/Free_energy_principle}
-    \includepdf[pages=-, fitpaper=true]{\assetspath review/biology/active_inference.pdf}
-    Active inference can explain cognitive proccesses such as perception, action selection and
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+\usepackage[active,tightpage]{preview}
+
+\PreviewBorder=4pt
+
+\usetikzlibrary{graphs,graphdrawing,arrows.meta,positioning,calc,fit,shapes.geometric}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   \seeherefooter{https://en.wikipedia.org/wiki/Free_energy_principle#Active_inference}
+   \url{https://en.wikipedia.org/wiki/Free_energy_principle}
+   \includepdf[pages=-, fitpaper=true]{\assetspath review/biology/active_inference.pdf}
+   \seeherefooter{}
+   Active inference can explain cognitive proccesses such as perception, action selection and
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
