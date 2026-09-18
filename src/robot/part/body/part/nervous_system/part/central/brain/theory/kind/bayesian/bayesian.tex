@@ -25,12 +25,23 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
-\title{}
+\title{Bayesian theories og brain}
 \date{}
 
 \begin{document}
-    \maketitle
-    Bayesian approaches to brain function investigate the capacity of the nervous system to operate in situations of uncertainty in a fashion that is close to the optimal prescribed by Bayesian statistics. \url{https://en.wikipedia.org/wiki/Bayesian_approaches_to_brain_function}
-    %\bibliographystyle{plainnat}
-    %\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   \maketitle
+   Bayesian approaches to brain function investigate the capacity of the nervous system to operate in situations of uncertainty in a fashion that is close to the optimal prescribed by Bayesian statistics. \url{https://en.wikipedia.org/wiki/Bayesian_approaches_to_brain_function}
+   \section{Evidences}
+      \subsection{Particle filter}
+         Kutschireiter et al. propose a Neural Particle Filter (NPF), a sampling-based nonlinear Bayesian filter intended as a biologically plausible model of perceptual inference \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception}.
+         In the model, particles representing samples from the posterior distribution are directly associated with the activity of neurons in a recurrent neural network.
+         The resulting neuronal dynamics can integrate noisy sensory information over time and across multiple sensory modalities while performing approximate Bayesian state estimation.
+
+
+      \subsection{Kalman filter}
+         Human sensorimotor control operates under substantial sensory and motor uncertainty, and Bayesian decision theory provides a framework for explaining how the central nervous system performs estimation and control under such uncertainty \cite{wolpert-2007-probabilistic-models-in-human-sensorimotor-control}. Experimental evidence suggests that humans combine multiple sensory sources approximately according to maximum-likelihood estimation and incorporate prior knowledge to form maximum a posteriori estimates.
+         The review also discusses evidence that the nervous system uses Kalman-filter-like processes to estimate dynamically changing states of the body and environment.
+
+         %\bibliographystyle{plainnat}
+         %\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
