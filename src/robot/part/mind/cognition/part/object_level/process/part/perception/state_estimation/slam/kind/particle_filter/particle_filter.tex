@@ -31,7 +31,9 @@
 
 \begin{document}
     \maketitle
+    \cite{arulampalam-2002-a-tutorial-on-particle-filters-for-online-nonlinear-non-gaussian-bayesian-tracking} describes the particle filter as a sequential Monte Carlo method that represents a probability distribution by a finite set of weighted samples called particles. The particles are propagated through the state-transition model and their weights are updated according to new observations, allowing the posterior state distribution to be estimated recursively. Resampling concentrates the particles in high-probability regions, making particle filters particularly suitable for nonlinear and non-Gaussian state-estimation problems.
     
+    \cite{kutschireiter-2017-nonlinear-bayesian-filtering-and-learning-a-neuronal-dynamics-for-perception} proposes the Neural Particle Filter as a sampling-based nonlinear Bayesian filtering mechanism for perception. Particles approximate the posterior distribution and can be directly associated with the activities of neurons in a recurrent neural network. The model integrates noisy sensory information over time and across multiple sensory modalities to estimate hidden states of the environment.
     
     \section{In human body}
         Sampling-based Bayesian inference in recurrent circuits of stochastic spiking neurons \seeherefooter{https://www.nature.com/articles/s41467-023-41743-3?utm_source=chatgpt.com}
