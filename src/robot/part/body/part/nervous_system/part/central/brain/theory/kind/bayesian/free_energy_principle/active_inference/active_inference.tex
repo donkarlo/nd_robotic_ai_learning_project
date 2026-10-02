@@ -43,9 +43,16 @@
 
    \seeherefooter{https://en.wikipedia.org/wiki/Free_energy_principle#Active_inference}
    \url{https://en.wikipedia.org/wiki/Free_energy_principle}
-   \includepdf[pages=-, fitpaper=true]{\assetspath review/biology/active_inference.pdf}
-   \seeherefooter{}
+
    Active inference can explain cognitive proccesses such as perception, action selection and
+
+   \section{How a living organism reduces anomaly}
+      A living organism can reduce persistent sensory anomaly in three main ways:
+      \begin{enumerate}
+         \item \textbf{Action:} change its actions so that subsequent sensory input becomes more consistent with the predictions of its generative model \cite{friston-2010-action-and-behavior-a-free-energy-formulation}.
+         \item \textbf{Precision reduction:} reduce the estimated precision of the sensory prediction error, thereby treating the mismatch as unreliable, noisy, or uninformative evidence \cite{feldman-2010-attention-uncertainty-and-free-energy}.
+         \item \textbf{Generative-model updating:} (Generative model here means, generating sensory observations from hidden state of the world) modify or expand the generative model when the mismatch is persistent, structured, and sufficiently reliable, so that the previously unexplained sensory pattern becomes represented by the model \cite{neacsu-2026-reviewing-structure-learning-in-and-out-of-the-active-inference-framework}.
+      \end{enumerate}
 
    \bibliographystyle{plainnat}
    \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}

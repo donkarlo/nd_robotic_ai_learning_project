@@ -1,0 +1,55 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+\usepackage[active,tightpage]{preview}
+
+\PreviewBorder=4pt
+
+\usetikzlibrary{graphs,graphdrawing,arrows.meta,positioning,calc,fit,shapes.geometric}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{Novelty Detection}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+   
+   \section{Biological definition}
+   In biological systems, novelty detection is the process by which the nervous system identifies a stimulus or event as new, unexpected, or mismatching an internal representation of previously encountered regularities. Novel events tend to elicit stronger neural responses than repeated familiar events, recruit attention and orienting responses, and can facilitate the encoding of the event into memory \cite{ranganath-rainer-2003-neural-mechanisms-for-detecting-and-remembering-novel-events,sokolov-1990-the-orienting-response-and-future-directions-of-its-development}. In hippocampal circuits, novelty can be represented as a mismatch between incoming information and stored representations; this signal can engage the hippocampal--VTA loop, increasing dopaminergic modulation and thereby promoting synaptic plasticity and learning \cite{lisman-grace-2005-the-hippocampal-vta-loop-controlling-the-entry-of-information-into-long-term-memory}. More broadly, novelty processing recruits distributed cortical, hippocampal, and midbrain systems, and repeated exposure typically produces habituation as the stimulus becomes familiar \cite{tapper-molas-2020-midbrain-circuits-of-novelty-processing}.
+
+   \section{Relation with homeostasis}
+   Novelty detection is not itself a homeostatic mechanism. Homeostasis refers to physiological regulation that maintains or restores internal variables within viable ranges. However, detection of an unexpected environmental or internal event can initiate orienting, autonomic, and neuroendocrine responses that help the organism evaluate whether the event threatens internal stability. Mammalian responses to external and internal challenges are coordinated through limbic, hypothalamic, brainstem, autonomic, and hypothalamic--pituitary--adrenal systems that contribute to the re-establishment and maintenance of homeostasis \cite{ulrich-lai-herman-2009-neural-regulation-of-endocrine-and-autonomic-stress-responses}. Thus, novelty detection can be viewed as an upstream information-processing process that may recruit homeostatic regulation when the detected novelty has physiological significance.
+
+   \section{Relation with allostasis}
+   The relation between novelty detection and allostasis is more direct at the level of adaptive regulation. Allostasis denotes achieving stability through change: physiological and behavioral systems adjust their activity in anticipation of, or in response to, changing demands rather than merely correcting deviations after they occur \cite{mcewen-1998-stress-adaptation-and-disease-allostasis-and-allostatic-load,sterling-2012-allostasis-a-model-of-predictive-regulation}. A novel event signals that the current environmental model may no longer be sufficient and therefore may require changes in attention, behavior, autonomic state, endocrine activity, or learning. Novelty-triggered orienting and exploratory responses can consequently provide information that supports adaptive adjustment to uncertain conditions \cite{ranganath-rainer-2003-neural-mechanisms-for-detecting-and-remembering-novel-events,tapper-molas-2020-midbrain-circuits-of-novelty-processing}. In this sense, novelty detection can act as a trigger for allostatic regulation: it identifies unexpected change, while allostatic mechanisms coordinate anticipatory or adaptive responses that preserve functional stability under that change.
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
