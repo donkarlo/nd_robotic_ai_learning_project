@@ -1,0 +1,115 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+\title{Cascade controller}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   A cascade controller uses two or more feedback control loops connected in sequence. The output of an outer controller becomes the setpoint of an inner controller. In this way, the inner loop reacts quickly to lower-level errors, while the outer loop controls the higher-level objective. Cascade control systems commonly use PID controllers in the inner and outer loops \cite{lee-1998-pid-controller-tuning-for-cascade-control-systems}.
+
+   \seeherefooter{https://doi.org/10.1021/ie970769t}
+
+   \section{Basic structure}
+      Let the outer-loop reference be $r_1$ and its measured output be $y_1$. The outer-loop error is
+      \[
+         e_1=r_1-y_1.
+      \]
+
+      The outer controller $C_1$ produces the reference for the inner loop:
+      \[
+         r_2=C_1(e_1).
+      \]
+
+      The inner-loop error is then
+      \[
+         e_2=r_2-y_2,
+      \]
+      and the inner controller $C_2$ generates the final control command:
+      \[
+         u=C_2(e_2).
+      \]
+
+      Therefore, the cascade structure can be summarized as
+      \[
+         r_1
+         \rightarrow
+         e_1
+         \rightarrow
+         C_1
+         \rightarrow
+         r_2
+         \rightarrow
+         e_2
+         \rightarrow
+         C_2
+         \rightarrow
+         u.
+      \]
+
+   \section{P/PID example}
+      A common cascaded structure is a proportional outer loop followed by a PID inner loop. For position and velocity control,
+      \[
+         \mathbf{e}_p
+         =
+         \mathbf{p}_{\mathrm{sp}}-\mathbf{p},
+      \]
+      and the proportional position controller generates the velocity setpoint
+      \[
+         \mathbf{v}_{\mathrm{sp}}
+         =
+         K_{\mathrm{P},p}\mathbf{e}_p.
+      \]
+      The inner-loop velocity error is
+      \[
+         \mathbf{e}_v
+         =
+         \mathbf{v}_{\mathrm{sp}}-\mathbf{v}.
+      \]
+
+      A PID controller can then generate the control command
+      \[
+         \mathbf{u}
+         =
+         K_{\mathrm{P},v}\mathbf{e}_v
+         +
+         K_{\mathrm{I},v}\int \mathbf{e}_v(t)\,dt
+         +
+         K_{\mathrm{D},v}\frac{d\mathbf{e}_v(t)}{dt}.
+      \]
+
+      Thus, the outer P controller determines how fast the system should move toward the desired position, while the inner PID controller makes the actual velocity follow that desired velocity.
+
+      \cite{lee-1998-pid-controller-tuning-for-cascade-control-systems} discusses cascade control with inner and outer PID loops and the coordinated tuning of both loops.
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

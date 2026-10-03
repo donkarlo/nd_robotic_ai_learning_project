@@ -1,0 +1,66 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{float}
+\usepackage{natbib}
+
+\title{Proportional controller}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   A proportional controller is a feedback controller whose control output is proportional to the current control error \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
+
+   \section{Formulation}
+      Let the reference value be $r(t)$ and the measured system output be $y(t)$. The control error is
+      \[
+         e(t)=r(t)-y(t).
+      \]
+
+      A proportional controller generates the control input
+      \[
+         u(t)=K_P e(t),
+      \]
+      where $K_P$ is the proportional gain. Therefore, a larger error produces a proportionally larger control action.
+
+   \subsection{Vector form}
+      For a multi-dimensional state,
+      \[
+         \mathbf{e}(t)=\mathbf{r}(t)-\mathbf{y}(t),
+         \qquad
+         \mathbf{u}(t)=K_P\mathbf{e}(t),
+      \]
+      where $K_P$ may be a scalar gain or a gain matrix.
+
+   \subsection{Position-control loop}
+      For position control, the position error can be converted into a velocity setpoint:
+      \[
+         \mathbf{e}_p
+         =
+         \mathbf{p}_{\mathrm{sp}}
+         -
+         \mathbf{p},
+         \qquad
+         \mathbf{v}_{\mathrm{sp}}
+         =
+         K_P\mathbf{e}_p.
+      \]
+      Thus, the farther the system is from the desired position, the larger the commanded velocity becomes. As the position error approaches zero, the commanded velocity also approaches zero.
+
+   \subsection{Closed-loop form}
+      For a plant with transfer function $G(s)$ and proportional gain $K_P$, the closed-loop transfer function under unity negative feedback is
+      \[
+         \frac{Y(s)}{R(s)}
+         =
+         \frac{K_P G(s)}
+              {1+K_P G(s)}.
+      \]
+
+      Increasing $K_P$ generally increases the strength of the corrective response, but an excessively large gain can increase overshoot, oscillation, or instability depending on the plant dynamics \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

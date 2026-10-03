@@ -1,0 +1,17 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Lee et~al.(1998)Lee, Park, and
+  Lee]{lee-1998-pid-controller-tuning-for-cascade-control-systems}
+Yongho Lee, Sunwon Park, and Moonyong Lee.
+\newblock Pid controller tuning to obtain desired closed loop responses for
+  cascade control systems.
+\newblock \emph{Industrial \& Engineering Chemistry Research}, 37\penalty0
+  (5):\penalty0 1859--1865, 1998.
+\newblock \doi{10.1021/ie970769t}.
+
+\end{thebibliography}

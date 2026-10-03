@@ -2,35 +2,138 @@
 
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
-\usepackage{minted}
-\usepackage{multirow}
 \usepackage{float}
-\usepackage{todonotes}
-\usepackage{forest}
-\usepackage{xstring}
-\usepackage{xcolor}
-\usepackage[most]{tcolorbox}
-\usepackage{xparse}
 \usepackage{natbib}
-
-\usetikzlibrary{graphs,graphdrawing}
-\usegdlibrary{layered}
-
-% for external graphviz
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
-
-% for tags
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
-
-% for links
-\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
 \title{Proportional integral derivative controller}
 \date{}
+\author{Mohammad Rahmani}
 
 \begin{document}
-\maketitle
+   \maketitle
 
-    %\bibliographystyle{plainnat}
-    %\bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   A proportional--integral--derivative (PID) controller is a feedback controller that combines the present control error, the accumulated past error, and the rate of change of the error to generate a corrective control input \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
+
+   \section{Formulation}
+      Let the reference value be $r(t)$ and the measured system output be $y(t)$. The control error is
+      \[
+         e(t)=r(t)-y(t).
+      \]
+
+      The continuous-time PID control law is
+      \[
+         u(t)
+         =
+         K_P e(t)
+         +
+         K_I \int_{0}^{t} e(\tau)\,d\tau
+         +
+         K_D \frac{de(t)}{dt}.
+      \]
+
+      where $K_P$, $K_I$, and $K_D$ are the proportional, integral, and derivative gains.
+
+   \subsection{Contribution of each term}
+      \begin{itemize}
+         \item \textbf{Proportional term:} $K_P e(t)$ reacts to the current error. A larger error produces a larger immediate corrective action.
+         \item \textbf{Integral term:} $K_I \int_0^t e(\tau)\,d\tau$ accumulates persistent error and can remove steady-state offset, but excessive integral action can produce overshoot and integral windup.
+         \item \textbf{Derivative term:} $K_D \frac{de(t)}{dt}$ reacts to how quickly the error is changing and can provide damping, but it is sensitive to measurement noise.
+      \end{itemize}
+      These effects and the practical trade-offs among the three terms are standard properties of PID control \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
+
+   \subsection{Vector form}
+      For a multi-dimensional controlled variable,
+      \[
+         \mathbf{e}(t)
+         =
+         \mathbf{r}(t)-\mathbf{y}(t),
+      \]
+      and
+      \[
+         \mathbf{u}(t)
+         =
+         K_P\mathbf{e}(t)
+         +
+         K_I\int_0^t\mathbf{e}(\tau)\,d\tau
+         +
+         K_D\dot{\mathbf{e}}(t),
+      \]
+      where the gains may be scalars or matrices, depending on whether the controlled dimensions are coupled.
+
+   \subsection{Discrete-time form}
+      For sampled control with sampling interval $\Delta t$,
+      \[
+         \mathbf{I}_k
+         =
+         \mathbf{I}_{k-1}
+         +
+         \mathbf{e}_k\Delta t,
+         \qquad
+         \mathbf{D}_k
+         =
+         \frac{\mathbf{e}_k-\mathbf{e}_{k-1}}{\Delta t},
+      \]
+      and the PID command is
+      \[
+         \mathbf{u}_k
+         =
+         K_P\mathbf{e}_k
+         +
+         K_I\mathbf{I}_k
+         +
+         K_D\mathbf{D}_k.
+      \]
+
+   \subsection{Velocity-control loop}
+      In a cascaded position/velocity controller, the outer position loop can produce a velocity setpoint $\mathbf{v}^{\mathrm{sp}}_k$. The inner PID loop then uses
+      \[
+         \mathbf{e}_{v,k}
+         =
+         \mathbf{v}^{\mathrm{sp}}_k-\mathbf{v}_k
+      \]
+      and generates the low-level command
+      \[
+         \mathbf{c}_k
+         =
+         K_{\mathrm{P},v}\mathbf{e}_{v,k}
+         +
+         K_{\mathrm{I},v}
+         \sum_{j=0}^{k}\mathbf{e}_{v,j}\Delta t
+         +
+         K_{\mathrm{D},v}
+         \frac{\mathbf{e}_{v,k}-\mathbf{e}_{v,k-1}}{\Delta t}.
+      \]
+      Here $\mathbf{c}_k$ denotes the low-level command produced by the velocity controller. This notation is useful when a higher-level controller already uses $\mathbf{u}_k$ for a supervisory control input.
+
+   \subsection{Transfer-function form}
+      The transfer function of an ideal PID controller is
+      \[
+         C(s)
+         =
+         K_P
+         +
+         \frac{K_I}{s}
+         +
+         K_D s.
+      \]
+
+      For a plant with transfer function $G(s)$ and unity negative feedback, the closed-loop transfer function is
+      \[
+         \frac{Y(s)}{R(s)}
+         =
+         \frac{C(s)G(s)}
+              {1+C(s)G(s)}.
+      \]
+
+   \section{Practical considerations}
+      \begin{itemize}
+         \item Larger $K_P$ increases the immediate corrective response, but excessive proportional gain can increase oscillation or instability.
+         \item Larger $K_I$ increases correction of persistent bias and steady-state error, but excessive integral action can cause windup when the actuator saturates.
+         \item Larger $K_D$ increases damping against rapid error changes, but derivative action amplifies high-frequency measurement noise and is therefore commonly filtered in practical implementations.
+      \end{itemize}
+
+      PID gains must therefore be chosen with respect to the plant dynamics, sampling interval, actuator limits, and measurement noise \cite{astrom-2008-feedback-systems-an-introduction-for-scientists-and-engineers}.
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
