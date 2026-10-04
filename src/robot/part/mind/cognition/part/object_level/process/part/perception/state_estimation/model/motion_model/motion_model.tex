@@ -1,0 +1,121 @@
+
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing,arrows.meta,positioning,calc,fit,shapes.geometric}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{Motion model}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   A motion model describes how the state of a robot changes over time as a result of motion or control input. In probabilistic robotics, it is commonly used to predict the next robot state during localization and state estimation \cite{thrun-2005-probabilistic-robotics}.
+
+   A general probabilistic motion model can be written as
+   \[
+      p(x_k \mid x_{k-1},u_k),
+   \]
+   where $x_{k-1}$ is the previous state, $u_k$ is the motion or control input, and $x_k$ is the predicted current state.
+
+   \section{Velocity motion model}
+      A velocity motion model predicts the next state from commanded or measured translational and rotational velocities \cite{thrun-2005-probabilistic-robotics}.
+
+      For a planar robot with pose
+      \[
+         x_k =
+         \begin{bmatrix}
+            x_k & y_k & \theta_k
+         \end{bmatrix}^{T},
+      \]
+      and control input
+      \[
+         u_k =
+         \begin{bmatrix}
+            v_k & \omega_k
+         \end{bmatrix}^{T},
+      \]
+      a simple discrete kinematic approximation is
+      \[
+         x_k =
+         x_{k-1}
+         +
+         \begin{bmatrix}
+            v_k\cos\theta_{k-1}\\
+            v_k\sin\theta_{k-1}\\
+            \omega_k
+         \end{bmatrix}
+         \Delta t.
+      \]
+
+      This model is useful when linear and angular velocity commands or measurements are directly available.
+
+   \section{Odometry motion model}
+      An odometry motion model predicts the new state from relative motion measured between two time steps, typically from wheel encoders or another odometric source \cite{thrun-2005-probabilistic-robotics,siegwart-2011-introduction-to-autonomous-mobile-robots}.
+
+      The relative motion can be represented as
+      \[
+         \Delta x_k =
+         \begin{bmatrix}
+            \Delta x_k &
+            \Delta y_k &
+            \Delta \theta_k
+         \end{bmatrix}^{T},
+      \]
+      and the next pose is predicted from
+      \[
+         x_k = x_{k-1} + \Delta x_k.
+      \]
+
+      In practice, odometry is uncertain because of wheel slip, encoder error, uneven terrain, and other unmodelled effects. Therefore, probabilistic state estimators treat the predicted motion as uncertain rather than exact.
+
+   \section{Kinematic motion model}
+      A kinematic motion model describes robot motion using geometric relations between position, orientation, velocity, and steering variables, without explicitly modelling forces or torques \cite{siegwart-2011-introduction-to-autonomous-mobile-robots,siciliano-2016-springer-handbook-of-robotics}.
+
+      For a planar unicycle model,
+      \[
+         \dot{x}=v\cos\theta,
+         \qquad
+         \dot{y}=v\sin\theta,
+         \qquad
+         \dot{\theta}=\omega,
+      \]
+      where $v$ is linear velocity and $\omega$ is angular velocity.
+
+      Kinematic motion models are commonly used when geometric motion constraints are sufficient for prediction and the detailed dynamics of mass, force, and torque are not required.
+
+   \section{Use in state estimation}
+      In Bayesian state estimation, the motion model provides the prediction step. It propagates the previous state distribution forward before the new sensor observation is incorporated. The motion model therefore complements the observation or sensor model rather than replacing it \cite{thrun-2005-probabilistic-robotics}.
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}
