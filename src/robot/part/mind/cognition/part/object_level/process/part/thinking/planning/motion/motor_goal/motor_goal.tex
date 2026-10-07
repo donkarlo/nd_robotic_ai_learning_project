@@ -1,0 +1,57 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{Motor Goal}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   \section{Definition}
+      A motor goal is a desired motor outcome that organizes subsequent motor planning and control. It specifies what movement outcome should be achieved, while lower levels determine how that outcome is realized through trajectories, muscle activity, actuator commands, or control inputs.
+
+      \seeherefooter{https://en.wikipedia.org/wiki/Motor_goal}
+
+      A motor goal is the desired outcome of a motor act rather than the detailed specification of the movements that produce that outcome. Rizzolatti and Fogassi distinguish a motor act from an individual movement and define the motor goal in terms of the outcome achieved by the organized motor act \cite{rizzolatti-2014-the-mirror-mechanism-recent-findings-and-perspectives}.
+
+      This distinction is also explicit in motor-planning literature. A motor goal specifies the intended outcome of a movement at a relatively abstract level, whereas a motor plan specifies the movement details required to achieve that outcome \cite{wong-2017-motor-planning-flexibly-optimizes-performance-under-uncertainty-about-task-goals}. Therefore, the same motor goal can in principle be achieved by different motor plans, trajectories, joint configurations, or control commands.
+
+   \section{Relation to motor planning and control}
+      The motor goal constrains what the motor system should achieve, while motor planning resolves how that goal should be achieved by selecting a specific movement. The resulting movement specification can then be translated into trajectories, actuator commands, or lower-level control inputs. In this sense, the motor goal belongs conceptually above the motor plan and the control command in the movement-generation hierarchy.
+
+
+
+      \bibliographystyle{plainnat}
+      \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

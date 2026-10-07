@@ -1,0 +1,125 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{Artificial Potential Field}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   \section{Definition}
+      The artificial potential field (APF) method represents a navigation problem by assigning a virtual potential to the robot configuration. The goal produces an attractive contribution and obstacles produce repulsive contributions. The robot is then driven in the direction of decreasing total potential.
+
+      Khatib introduced the artificial potential field formulation for real-time obstacle avoidance in manipulators and mobile robots \cite{khatib-1986-real-time-obstacle-avoidance}.
+
+   \section{Potential and virtual force}
+      Let \(\mathbf q\) denote the robot position or configuration. The total potential is
+      \[
+         U(\mathbf q)
+         =
+         U_{\mathrm{att}}(\mathbf q)
+         +
+         U_{\mathrm{rep}}(\mathbf q).
+      \]
+
+      The corresponding virtual force or guidance vector is the negative gradient of the potential,
+      \[
+         \mathbf F(\mathbf q)
+         =
+         -\nabla U(\mathbf q)
+         =
+         \mathbf F_{\mathrm{att}}(\mathbf q)
+         +
+         \mathbf F_{\mathrm{rep}}(\mathbf q).
+      \]
+
+   \section{Attractive field}
+      A common attractive potential around a goal \(\mathbf q_g\) is
+      \[
+         U_{\mathrm{att}}(\mathbf q)
+         =
+         \frac{1}{2}\zeta
+         \left\|
+            \mathbf q-\mathbf q_g
+         \right\|^2,
+      \]
+      where \(\zeta>0\) controls the strength of attraction. Its negative gradient is
+      \[
+         \mathbf F_{\mathrm{att}}(\mathbf q)
+         =
+         -\zeta
+         \left(
+            \mathbf q-\mathbf q_g
+         \right).
+      \]
+
+   \section{Repulsive field}
+      Let \(\rho(\mathbf q)\) be the distance from the robot to the nearest obstacle, and let \(\rho_0\) be the obstacle influence distance. A common repulsive potential is
+      \[
+         U_{\mathrm{rep}}(\mathbf q)
+         =
+         \begin{cases}
+            \dfrac{1}{2}\eta
+            \left(
+               \dfrac{1}{\rho(\mathbf q)}
+               -
+               \dfrac{1}{\rho_0}
+            \right)^2,
+            & \rho(\mathbf q)\leq \rho_0,\\[8pt]
+            0,
+            & \rho(\mathbf q)>\rho_0,
+         \end{cases}
+      \]
+      where \(\eta>0\) controls the repulsive strength. The resulting vector points away from the obstacle because it follows the negative gradient of the repulsive potential.
+
+   \section{Relation to the control input}
+      The APF output should not automatically be interpreted as a physical force. It is a guidance vector. Depending on the robot model and controller, it can be mapped to a desired force, acceleration, velocity, heading, or another control reference. For example,
+      \[
+         \mathbf u_t
+         =
+         k\,\mathbf F(\mathbf q_t)
+      \]
+      can be used when the control-input semantics are chosen so that \(\mathbf u_t\) represents the corresponding command.
+
+   \section{Biological analogue}
+      Artificial potential fields do not have a literal one-to-one biological equivalent. A close biological analogue is gradient-following behavior such as chemotaxis. Bacteria can bias their movement toward attractants and away from repellents by sensing environmental gradients \cite{hu-2014-bacterial-navigation-gradients}. This resembles the attractive and repulsive components of an APF at the behavioral level, although the biological mechanism is implemented through sensing, signaling, adaptation, and stochastic run-and-tumble motion rather than by explicitly computing a scalar artificial potential.
+
+      \cite{kerr-2017-biological-goal-seeking} also uses biologically inspired goal-seeking mechanisms in autonomous agents and combines potential-field-like behavior with finite-state control.
+
+   \section{Limitation}
+      A classical limitation of artificial potential fields is the possibility of local minima: the total gradient can become zero at a configuration that is not the goal. Therefore, APF is particularly suitable as a reactive or local navigation mechanism, while additional strategies may be required for global completeness in complex environments.
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

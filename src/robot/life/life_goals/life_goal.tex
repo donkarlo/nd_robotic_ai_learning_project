@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{minted}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{todonotes}
+\usepackage{forest}
+\usepackage{xstring}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
+\usepackage{natbib}
+\usepackage{adjustbox}
+
+\usetikzlibrary{graphs,graphdrawing}
+\usegdlibrary{layered}
+
+% for external graphviz
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/external_graphviz.tex}
+
+% for tags
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/part/control_sequence/kind/semtag/semtag.tex}
+
+% for links
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
+
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
+\title{Life Goals}
+\date{}
+\author{Mohammad Rahmani}
+
+\begin{document}
+   \maketitle
+
+   \section{Biological origin of goals}
+      In biological organisms, some goals are grounded in the maintenance of viable internal states. Homeostatic and allostatic regulation can therefore be treated as a source of motivational goals: deviations of regulated variables from desired ranges create pressures for actions that restore or protect physiological stability.
+
+      \cite{keramati-2014-homeostatic-reinforcement-learning} formalizes this idea by representing physiological state in a multidimensional homeostatic space and defining motivational drive from the deviation between the current state and a desired homeostatic setpoint. In that framework, outcomes are rewarding when they reduce this deviation, linking physiological regulation to learned goal-directed behavior.
+
+      Let the internal physiological state be
+      \[
+         \mathbf{H}_t =
+         \begin{bmatrix}
+            h_{1,t} & h_{2,t} & \cdots & h_{N,t}
+         \end{bmatrix}^{\mathsf T},
+      \]
+      and let the desired homeostatic state be \(\mathbf{H}^{*}\). A simple conceptual measure of homeostatic deviation is
+      \[
+         D_t = \left\|\mathbf{H}^{*}-\mathbf{H}_t\right\|.
+      \]
+      A biologically grounded goal can then correspond to reaching or maintaining a region in which this deviation is sufficiently small.
+
+   \section{Neural survival circuits}
+      \cite{sternson-2013-hypothalamic-survival-circuits-blueprints-for-purposive-behaviors} reviews hypothalamic neural circuits that generate purposive behaviors essential for survival, including feeding, aggression, and reproduction. Small, molecularly defined neuronal populations can rapidly recruit complex motivated behaviors, providing a neural link between internal physiological state and behavioral intent.
+
+   \section{Affect, prediction, and exploratory motivation}
+      \cite{trapp-2017-commentary-on-the-joys-of-perceiving-affect-as-feedback-for-perceptual-predictions} discusses predictive coding and proposes affect as a motivational signal related to successful prediction under uncertainty. This provides a possible route by which prediction, uncertainty, and novelty can modulate behavior in addition to direct physiological drives.
+
+   \section{Relation to autonomous agents}
+      \cite{kerr-2017-biological-goal-seeking} presents a biologically inspired goal-seeking approach for autonomous agents in which relatively simple reactive mechanisms generate movement toward goals while avoiding obstacles. This is an implementation mechanism for goal seeking, not the biological origin of the goal itself.
+
+      \seeherefooter{/home/donkarlo/Dropbox/repo/nd_robotic_ai_learning_project/src/robot/part/mind/goal/goal.tex}
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+\end{document}

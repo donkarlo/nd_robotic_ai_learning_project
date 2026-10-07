@@ -5,6 +5,8 @@
 \usepackage{minted}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{todonotes}
 \usepackage{forest}
 \usepackage{xstring}
@@ -12,6 +14,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xparse}
 \usepackage{natbib}
+\usepackage{adjustbox}
 
 \usetikzlibrary{graphs,graphdrawing}
 \usegdlibrary{layered}
@@ -25,29 +28,37 @@
 % for links
 \input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/seehere.tex}
 
+% for nested lists and sections
+\input{/home/donkarlo/Dropbox/repo/nd_language_ai_project/src/nd_language_ai/formal/computer/programming/tex/latex/code_clips/deep_structure.tex}
+
 \title{Goal}
 \date{}
+\author{Mohammad Rahmani}
 
 \begin{document}
-    \maketitle
-    A goal or objective is an idea of the future or desired result that a person or a group of people envision, plan, and commit to achieve. \seehere{https://en.wikipedia.org/wiki/Goal}
-    
-    \cite{trapp-2017-commentary-on-the-joys-of-perceiving-affect-as-feedback-for-perceptual-predictions} discusses predictive coding and the idea that the brain minimizes surprise using internal models. It addresses the “dark room problem” by introducing affect as a motivational signal. Positive affect is proposed to arise from successful predictions, especially under uncertainty. This framework links perception with reinforcement learning and the exploration–exploitation dilemma. It suggests that novelty is intrinsically rewarding because it can increase positive affect.
-    
-    \cite{sternson-2013-hypothalamic-survival-circuits-blueprints-for-purposive-behaviors} reviews how hypothalamic neural circuits generate goal-directed behaviors essential for survival, such as feeding, aggression, and reproduction.
-    It shows that small, molecularly defined neuron populations (e.g., AGRP neurons) can rapidly trigger complex motivated behaviors when activated.
-    It proposes that survival needs provide entry points to map neural circuits linking internal states to behavioral intent and intensity.
-    
-    
-    \section{Goal seeking}
-        \cite{kerr-2017-biological-goal-seeking} presents a biologically inspired approach to goal-seeking behavior in autonomous agents. It models how agents can move toward goals while avoiding obstacles using simple, reactive mechanisms. The method combines elements like potential fields and finite-state control to generate adaptive behavior.
-        It demonstrates how complex navigation can emerge from relatively simple rules without global planning. The work is evaluated in scenarios such as dynamic environments and predator–prey interactions.
-        
-    \section{Motor goal}
-        A motor goal is a neurally planned motor outcome that is used to organize motor control.
-        \seeherefooter{https://en.wikipedia.org/wiki/Motor_goal}
-        
-        
-        \bibliographystyle{plainnat}
-        \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
+   \maketitle
+
+   \section{Definition}
+      A goal is a representation of a desired future state or outcome. In planning, the goal constrains which future states count as successful and therefore guides the selection of actions or plans that can reach the desired state \cite{mcdermott-1999-using-regression-match-graphs-to-control-search-in-planning}.
+
+   \section{Functional separation}
+      In this project, a goal is treated as a cognitive representation, while the origin and execution of goals are kept in their corresponding biological and control/planning layers.
+
+      \paragraph{Biological and homeostatic origin of goals}
+      Physiological needs, survival drives, homeostatic deviations, and allostatic regulation can generate or modulate goals. These mechanisms belong to the life layer rather than to the abstract cognitive representation of a goal.
+
+      \seeherefooter{/home/donkarlo/Dropbox/repo/nd_robotic_ai_learning_project/src/robot/life/life_goals/life_goal.tex}
+
+      \paragraph{Motor goal}
+      A motor goal is a desired motor outcome used to organize motor planning and control.
+
+      \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/motion/motor_goal/motor_goal.tex}
+
+      \paragraph{Goal seeking and navigation}
+      Methods that transform a spatial goal and environmental constraints into motion commands belong to motion/navigation planning. Artificial potential fields are therefore documented under path planning rather than in this goal-representation file.
+
+      \seeherefooter{/nd_robotic_ai_learning_project/src/robot/part/mind/cognition/part/object_level/process/part/thinking/planning/motion/navigation/path_planning/kind/artificial_potential_field/artificial_potential_field.tex}
+
+   \bibliographystyle{plainnat}
+   \bibliography{/home/donkarlo/Dropbox/repo/nd_shared_research/bibliography/bibliography.bib}
 \end{document}
